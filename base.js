@@ -2,15 +2,23 @@
 
 // グローバル変数
 // ロードする画像パスの配列
-var fileArray = [];
+var fileArray = ["img/stamp/button1/bingata_1.jpg"];
 // ロードした画像の座標+横幅高さ
-var xywh = [];
+var xywh = [{x: 0, y: 0, w: 450, h: 340}];
 // Canvas変数
-canvas = null;
+var canvas = null;
+// ボタン選択フラグ
+var img_flg = 1;
+
+window.onload = function(){
+  // ページ読み込み時に実行したい処理
+  showImageCanvas();
+}
 
 // HTML側にクリックイベント記述
 function button1Clicked() {
   // alert("ボタン1が押されたよ");
+  img_flg = 1;
   document.getElementById("img_1").src = "img/stamp/button1/bingata_1.jpg";
   document.getElementById("img_2").src = "img/stamp/button1/bingata_2.jpg";
   document.getElementById("img_3").src = "img/stamp/button1/bingata_3.jpg";
@@ -25,6 +33,7 @@ function button1Clicked() {
 
 function button2Clicked() {
   // alert("ボタン２が押されたよ");
+  img_flg = 2;
   document.getElementById("img_1").src = "img/stamp/button2/img_1.png";
   document.getElementById("img_2").src = "img/stamp/button2/img_2.png";
   document.getElementById("img_3").src = "img/stamp/button2/img_3.png";
@@ -38,14 +47,17 @@ function button2Clicked() {
 }
 
 function button3Clicked() {
+  img_flg = 3;
   alert("ボタン３が押されたよ");
 }
 
 function button4Clicked() {
+  img_flg = 4;
   alert("ボタン４が押されたよ");
 }
 
 function button5Clicked() {
+  img_flg = 5;
   alert("ボタン５が押されたよ");
 }
 
@@ -106,10 +118,15 @@ function addImageCanvas(img){
   var img_file = new Image();
   img_file.src = document.getElementById(img).src;
   if ( !img_file.src ) { return false; }
-  fileArray.push(img_file.src);
   var width  = img_file.width;
   var height = img_file.height;
-  xywh.push({x: 0, y: 0, w: width, h: height});
+  if(img_flg == 1){
+    fileArray[0] = img_file.src;
+    xywh[0] = {x: 0, y: 0, w: width, h: height};
+  }else{
+    fileArray.push(img_file.src);
+    xywh.push({x: 0, y: 0, w: width, h: height});
+  }
   showImageCanvas();
 }
 
@@ -167,3 +184,4 @@ function SendImageCanvas(){
   var base64= canvas.toDataURL('image/png');
   // 以下にサーバーへ送る等のコードが必要
 }
+
