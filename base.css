@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+
+
+body {
+  margin: 0;
+ 
+}
+
+
+#contents{
+  width: 1280px;
+  height: 720px;
+  background: url(img/bg_natural_ocean.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position:static;
+}
+
+
+#logo{
+  width: 303px;
+  height: 72px;
+  background: url(img/bingatorLogo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position:absolute; top: 30px; left:70px;
+}
+
+
+#canvas{
+  width: 550px;
+  height: 600px;
+  position: absolute; top: 110px; left:40px;
+}
+
+#htmlCanvas{
+  position: absolute; top: 180px; left:90px;
+}
+
+#blackBorad{
+  width: 600px;
+  height: 680px;
+  position: absolute; top: 40px; left:640px;
+}
+
+
+#button1{
+  width: 80px;
+  height: 80px;
+  position: absolute; top: 60px; left:690px;
+}
+
+#button2{
+  width: 80px;
+  height: 80px;
+  position: absolute; top: 60px; left:790px;
+}
+
+#button3{
+  width: 80px;
+  height: 80px;
+  position: absolute; top: 60px; left:890px;
+}
+
+#button4{
+  width: 80px;
+  height: 80px;
+  position: absolute; top: 60px; left:990px;
+}
+
+#button5{
+  width: 80px;
+  height: 80px;
+  position: absolute; top: 60px; left:1090px;
+}
+
+
+#arrow_lef{
+  width: 60px;
+  height: 60px;
+  position: absolute; top: 450px; left:670px;
+}
+
+#arrow_up{
+  width: 60px;
+  height: 60px;
+  position: absolute; top: 450px; left:730px;
+}
+
+#arrow_right{
+  width: 60px;
+  height: 60px;
+  position: absolute; top: 450px; left:800px;
+}
+
+#arrow_down{
+  width: 60px;
+  height: 60px;
+  position: absolute; top: 450px; left:870px;
+}
+
+#arrow_reload{
+  width: 60px;
+  height: 60px;
+  position: absolute; top: 450px; left:950px;
+}
+
+#arrow_uturn{
+  width: 60px;
+  height: 60px;
+  position: absolute; top: 450px; left:1020px;
+}
+
+#okBtn{
+  width: 60px;
+  height: 60px;
+  position: absolute; top: 450px; left:1110px;
+}
