@@ -1,27 +1,40 @@
-// 初期設定
-// $(document).ready(function(){
-//     showImageCanvas();
-// });
-// 画像のパス保管のグローバル変数
+// マウスイベントの設定
+
+// グローバル変数
 // ロードする画像パスの配列
-var fileArray = ['img/shiisa_one.png'];
+var fileArray = [];
 // ロードした画像の座標+横幅高さ
-var xywh = [{x: 0, y: 0, w: 450, h: 340}];
+var xywh = [];
+// Canvas変数
+canvas = null;
 
 // HTML側にクリックイベント記述
 function button1Clicked() {
-  alert("ボタン1が押されたよ");
-  showImageCanvas();
+  // alert("ボタン1が押されたよ");
+  document.getElementById("img_1").src = "img/stamp/button1/bingata_1.jpg";
+  document.getElementById("img_2").src = "img/stamp/button1/bingata_2.jpg";
+  document.getElementById("img_3").src = "img/stamp/button1/bingata_3.jpg";
+  document.getElementById("img_4").src = "img/stamp/button1/bingata_4.jpg";
+  document.getElementById("img_5").src = "img/stamp/button1/bingata_5.jpg";
+  document.getElementById("img_6").src = "img/stamp/button1/bingata_6.jpg";
+  document.getElementById("img_7").src = "img/stamp/button1/bingata_7.jpg";
+  document.getElementById("img_8").src = "img/stamp/button1/bingata_8.jpg";
+  document.getElementById("img_9").src = "img/stamp/button1/bingata_9.jpg";
+  document.getElementById("img_10").src = "img/stamp/button1/bingata_10.jpg";
 }
 
 function button2Clicked() {
-  alert("ボタン２が押されたよ");
-  fileArray.push('img/mark_arrow_down.png');
-  var img = new Image();
-  img.src = 'img/mark_arrow_down.png';
-  var width  = img.width;
-  var height = img.height;
-  xywh.push({x: 0, y: 0, w: width, h: height});
+  // alert("ボタン２が押されたよ");
+  document.getElementById("img_1").src = "img/stamp/button2/img_1.png";
+  document.getElementById("img_2").src = "img/stamp/button2/img_2.png";
+  document.getElementById("img_3").src = "img/stamp/button2/img_3.png";
+  document.getElementById("img_4").src = "img/stamp/button2/img_4.png";
+  document.getElementById("img_5").src = "img/stamp/button2/img_5.png";
+  document.getElementById("img_6").src = "img/stamp/button2/img_6.png";
+  document.getElementById("img_7").src = "img/stamp/button2/img_7.png";
+  document.getElementById("img_8").src = "img/stamp/button2/img_8.png";
+  document.getElementById("img_9").src = "img/stamp/button2/img_9.png";
+  document.getElementById("img_10").src = "img/stamp/button2/img_10.png";
 }
 
 function button3Clicked() {
@@ -36,30 +49,78 @@ function button5Clicked() {
   alert("ボタン５が押されたよ");
 }
 
+// 画像移動系
+// arrowを押した時に配列最後の座標を移動させる。
+// これめちゃくちゃめんどくさい
+function MoveArrow(arrow){
+  switch(arrow){
+    case 'left':
+      if(xywh[xywh.length - 1]['x'] >= 0){
+        xywh[xywh.length - 1]['x'] += -5;
+      }
+      break;
+    case 'right':
+      if(xywh[xywh.length - 1]['x'] + xywh[xywh.length - 1]['w'] <= 450){
+        xywh[xywh.length - 1]['x'] += +5;
+      }
+      break;
+    case 'up':
+      if(xywh[xywh.length - 1]['y'] >= 0){
+        xywh[xywh.length - 1]['y'] += -5;
+      }
+      break;
+    case 'down':
+      if(xywh[xywh.length - 1]['y'] + xywh[xywh.length - 1]['h'] <= 340){
+        xywh[xywh.length - 1]['y'] += +5;
+      }
+      break;
+  }
+  showImageCanvas();
+}
 
-// function draw() {
-//   /* canvas要素のノードオブジェクト */
-//   var canvas = document.getElementById('htmlCanvas');
-//   if ( ! canvas || ! canvas.getContext ) { return false; }
-//   var ctx = canvas.getContext('2d');
-//   ctx.beginPath();
+// クリックした座標を取得し、配列末尾の画像座標変更
+// マウスイベントを設定
+function moveClick(screenX, screenY){
+  // 結果の書き出し
+  if(screenX >= 0 && screenX + xywh[xywh.length - 1]['w'] <= 450 && screenY >= 0 && screenY + xywh[xywh.length - 1]['h'] <= 340){
+    // alert('screen=' + screenX + ',' + screenY);
+    xywh[xywh.length - 1]['x'] = screenX;
+    xywh[xywh.length - 1]['y'] = screenY;
+    showImageCanvas();
+  }
+}
 
-//     /* Imageオブジェクトを生成 */
-//   var img = new Image();
-//   img.src = "img/shiisa_one.png?" + new Date().getTime();
-//   /* 画像が読み込まれるのを待ってから処理を続行 */
-//   img.onload = function() {
-//     ctx.drawImage(img, 0, 0);
-//   }
-// }
 
+// 画像削除系
+// 最後に更新した画像を削除
+function deleteImageCanvas(){
+  // if( fileArray.length == 0){return false;}
+  fileArray.pop();
+  xywh.pop();
+  showImageCanvas();
+}
+
+// 内部処理関数
+// 入力した画像をfileArray配列に挿入する。
+function addImageCanvas(img){
+  var img_file = new Image();
+  img_file.src = document.getElementById(img).src;
+  if ( !img_file.src ) { return false; }
+  fileArray.push(img_file.src);
+  var width  = img_file.width;
+  var height = img_file.height;
+  xywh.push({x: 0, y: 0, w: width, h: height});
+  showImageCanvas();
+}
+
+// canvasに作成画像出力
 function showImageCanvas(){
   // ロードする画像配列の長さ
   var numFiles = fileArray.length;
   var loadedCount = 0;
   var imageObjectArray = [];
   // Canvas要素
-  var canvas = document.getElementById('htmlCanvas');
+  canvas = document.getElementById('htmlCanvas');
   if ( ! canvas || ! canvas.getContext ) { return false; }
   var ctx = canvas.getContext('2d');
 
@@ -96,5 +157,13 @@ function showImageCanvas(){
   // 画像のロード・描写実行
   loadImages();
 
+}
 
+// Canvasで作成した画像をBase64に変換し、サーバーへ送る
+// まだBase64に変換する部分しか実装していない
+// 参考URL : http://qiita.com/0829/items/a8c98c8f53b2e821ac94
+function SendImageCanvas(){
+  // Base64への変換
+  var base64= canvas.toDataURL('image/png');
+  // 以下にサーバーへ送る等のコードが必要
 }

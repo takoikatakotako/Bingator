@@ -4,14 +4,13 @@
 
 body {
   margin: 0;
- 
-}
 
+}
 
 #contents{
   width: 1280px;
   height: 720px;
-  background: url(img/bg_natural_ocean.jpg);
+  background: url(img/layout/bg_natural_ocean.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   position:static;
@@ -21,7 +20,7 @@ body {
 #logo{
   width: 303px;
   height: 72px;
-  background: url(img/bingatorLogo.png);
+  background: url(img/layout/bingatorLogo.png);
   background-size: cover;
   background-repeat: no-repeat;
   position:absolute; top: 30px; left:70px;
@@ -44,76 +43,100 @@ body {
   position: absolute; top: 40px; left:640px;
 }
 
-
-#button1{
+#blackBorad_top input {
   width: 80px;
   height: 80px;
+}
+
+#button1{
   position: absolute; top: 60px; left:690px;
 }
 
 #button2{
-  width: 80px;
-  height: 80px;
   position: absolute; top: 60px; left:790px;
 }
 
 #button3{
-  width: 80px;
-  height: 80px;
   position: absolute; top: 60px; left:890px;
 }
 
 #button4{
-  width: 80px;
-  height: 80px;
   position: absolute; top: 60px; left:990px;
 }
 
 #button5{
-  width: 80px;
-  height: 80px;
   position: absolute; top: 60px; left:1090px;
 }
 
+#img_1{
+  position: absolute; top: 200px; left:690px;
+}
 
-#arrow_lef{
+#img_2{
+  position: absolute; top: 200px; left:790px;
+}
+
+#img_3{
+  position: absolute; top: 200px; left:890px;
+}
+
+#img_4{
+  position: absolute; top: 200px; left:990px;
+}
+
+#img_5{
+  position: absolute; top: 200px; left:1090px;
+}
+
+#img_6{
+  position: absolute; top: 300px; left:690px;
+}
+
+#img_7{
+  position: absolute; top: 300px; left:790px;
+}
+
+#img_8{
+  position: absolute; top: 300px; left:890px;
+}
+
+#img_9{
+  position: absolute; top: 300px; left:990px;
+}
+
+#img_10{
+  position: absolute; top: 300px; left:1090px;
+}
+
+#blackBoard_under input {
   width: 60px;
   height: 60px;
+}
+
+#arrow_lef{
   position: absolute; top: 450px; left:670px;
 }
 
 #arrow_up{
-  width: 60px;
-  height: 60px;
   position: absolute; top: 450px; left:730px;
 }
 
 #arrow_right{
-  width: 60px;
-  height: 60px;
   position: absolute; top: 450px; left:800px;
 }
 
 #arrow_down{
-  width: 60px;
-  height: 60px;
   position: absolute; top: 450px; left:870px;
 }
 
 #arrow_reload{
-  width: 60px;
-  height: 60px;
   position: absolute; top: 450px; left:950px;
 }
 
 #arrow_uturn{
-  width: 60px;
-  height: 60px;
   position: absolute; top: 450px; left:1020px;
 }
 
 #okBtn{
-  width: 60px;
-  height: 60px;
   position: absolute; top: 450px; left:1110px;
 }
