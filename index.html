@@ -37,15 +37,20 @@
       </div>
     </div>
     <div id="blackBoard_under">
-      <input id="arrow_lef" type="image" src="img/layout/mark_arrow_left.png" alt="ボタン1" onclick="MoveArrow('left')">
-      <input id="arrow_up" type="image" src="img/layout/mark_arrow_up.png" alt="ボタン2" onclick="MoveArrow('up')">
-      <input id="arrow_right" type="image" src="img/layout/mark_arrow_right.png" alt="ボタン3" onclick="MoveArrow('right')">
-      <input id="arrow_down" type="image" src="img/layout/mark_arrow_down.png" alt="ボタン4" onclick="MoveArrow('down')">
-      <input id="arrow_reload" type="image" src="img/layout/mark_arrow_reload.png" alt="ボタン5" onclick="deleteImageCanvas()">
-      <input id="arrow_uturn" type="image" src="img/layout/mark_arrow_uturn.png" alt="ボタン5">
-      <input id="okBtn" type="image" src="img/layout/okBtn.png" alt="ボタン5"　onclick="SendImageCanvas()">
+      <input id="arrow_lef" type="image" src="img/layout/mark_arrow_left.png" alt="左" onclick="moveArrow('left')">
+      <input id="arrow_up" type="image" src="img/layout/mark_arrow_up.png" alt="上" onclick="moveArrow('up')">
+      <input id="arrow_right" type="image" src="img/layout/mark_arrow_right.png" alt="右" onclick="moveArrow('right')">
+      <input id="arrow_down" type="image" src="img/layout/mark_arrow_down.png" alt="下" onclick="moveArrow('down')">
+      <input id="arrow_rotate" type="image" src="img/layout/mark_arrow_reload.png" alt="回転" onclick="rotateImg()">
+      <input id="arrow_flip" type="image" src="img/layout/mark_arrow_uturn.png" alt="左右反転" onclick="">
+      <input id="scale_up" type="image" src="img/layout/mark_scale_up.png" alt="拡大" onclick="scaleChange('up')">
+      <input id="scale_down" type="image" src="img/layout/mark_scale_down.png" alt="縮小" onclick="scaleChange('down')">
+    </div>
+    <div id="under_button">
+      <input id="undo" type="image" src="img/layout/undo.png" alt="戻る" onclick="deleteImageCanvas()">
+      <input id="return_top" type="image" src="img/layout/return_top.png" alt="トップへ">
+      <input id="okBtn" type="image" src="img/layout/okBtn.png" alt="OK"　onclick="SendImageCanvas()">
     </div>
   </div>
-
 </body>
 </html>

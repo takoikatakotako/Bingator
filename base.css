@@ -118,25 +118,46 @@ body {
 }
 
 #arrow_up{
-  position: absolute; top: 450px; left:730px;
+  position: absolute; top: 450px; left:740px;
 }
 
 #arrow_right{
-  position: absolute; top: 450px; left:800px;
+  position: absolute; top: 450px; left:810px;
 }
 
 #arrow_down{
-  position: absolute; top: 450px; left:870px;
+  position: absolute; top: 450px; left:880px;
 }
 
-#arrow_reload{
+#arrow_rotate{
   position: absolute; top: 450px; left:950px;
 }
 
-#arrow_uturn{
+#arrow_flip{
   position: absolute; top: 450px; left:1020px;
 }
 
+#scale_up{
+  position: absolute; top: 450px; left:1090px;
+}
+
+#scale_down{
+  position: absolute; top: 450px; left:1160px;
+}
+
+#under_button input{
+  width: 120px;
+  height: 120px;
+}
+
+#undo{
+  position: absolute; top: 600px; left:920px;
+}
+
+#return_top{
+  position: absolute; top: 600px; left:1040px;
+}
+
 #okBtn{
-  position: absolute; top: 450px; left:1110px;
+  position: absolute; top: 600px; left:1160px;
 }
