@@ -34,5 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <img src="img/testImages/rorigonShirt.png" alt="みんなの人気者カビゴン画像" width="300px" height="300px">
   <h3>ご注文はこれでいいっすか？</h3>
 
+  <form action="orderComplete.php" method="post">
+    <input type="hidden" name="id_UserName" value="<?php echo $userName; ?>">
+    <input type="hidden" name="id_Adress" value="<?php echo $adress; ?>">
+    <input type="hidden" name="id_MailAdress" value="<?php echo $mailAdress; ?>">
+    <input type="hidden" name="id_TelNumber" value="<?php echo $telNumber; ?>">
+    <input type="submit" value="いいよ！！">
+  </form>
+
 </body>
 </html>
