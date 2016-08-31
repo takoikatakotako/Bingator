@@ -1,14 +1,18 @@
-// マウスイベントの設定
+/* 定数部分(const使うとブラウザごとに対応・非対応で微妙...?) */
+// Canvas内の横幅・縦幅
+var SCREEN_WIDTH  = 450;
+var SCREEN_HEIGHT = 340;
 
 // グローバル変数
 // ロードする画像パスの配列
 var fileArray = ["img/stamp/button1/bingata_1.jpg"];
 // ロードした画像の座標+横幅高さ
-var xywh = [{x: 0, y: 0, w: 450, h: 340}];
+var xywhrf = [{x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0}];
 // Canvas変数
 var canvas = null;
 // ボタン選択フラグ
 var img_flg = 1;
+
 
 window.onload = function(){
   // ページ読み込み時に実行したい処理
@@ -61,29 +65,29 @@ function button5Clicked() {
   alert("ボタン５が押されたよ");
 }
 
-// 画像移動系
+/* 画像移動系 */
 // arrowを押した時に配列最後の座標を移動させる。
 // これめちゃくちゃめんどくさい
-function MoveArrow(arrow){
+function moveArrow(arrow){
   switch(arrow){
     case 'left':
-      if(xywh[xywh.length - 1]['x'] >= 0){
-        xywh[xywh.length - 1]['x'] += -5;
+      if(xywhrf[xywhrf.length - 1]['x'] >= 0){
+        xywhrf[xywhrf.length - 1]['x'] += -5;
       }
       break;
     case 'right':
-      if(xywh[xywh.length - 1]['x'] + xywh[xywh.length - 1]['w'] <= 450){
-        xywh[xywh.length - 1]['x'] += +5;
+      if(xywhrf[xywhrf.length - 1]['x'] + xywhrf[xywhrf.length - 1]['w'] <= SCREEN_WIDTH){
+        xywhrf[xywhrf.length - 1]['x'] += +5;
       }
       break;
     case 'up':
-      if(xywh[xywh.length - 1]['y'] >= 0){
-        xywh[xywh.length - 1]['y'] += -5;
+      if(xywhrf[xywhrf.length - 1]['y'] >= 0){
+        xywhrf[xywhrf.length - 1]['y'] += -5;
       }
       break;
     case 'down':
-      if(xywh[xywh.length - 1]['y'] + xywh[xywh.length - 1]['h'] <= 340){
-        xywh[xywh.length - 1]['y'] += +5;
+      if(xywhrf[xywhrf.length - 1]['y'] + xywhrf[xywhrf.length - 1]['h'] <= SCREEN_HEIGHT){
+        xywhrf[xywhrf.length - 1]['y'] += +5;
       }
       break;
   }
@@ -94,21 +98,50 @@ function MoveArrow(arrow){
 // マウスイベントを設定
 function moveClick(screenX, screenY){
   // 結果の書き出し
-  if(screenX >= 0 && screenX + xywh[xywh.length - 1]['w'] <= 450 && screenY >= 0 && screenY + xywh[xywh.length - 1]['h'] <= 340){
+  if(screenX >= 0 && screenX + xywhrf[xywhrf.length - 1]['w'] <= SCREEN_WIDTH && screenY >= 0 && screenY + xywhrf[xywhrf.length - 1]['h'] <= SCREEN_HEIGHT){
     // alert('screen=' + screenX + ',' + screenY);
-    xywh[xywh.length - 1]['x'] = screenX;
-    xywh[xywh.length - 1]['y'] = screenY;
+    xywhrf[xywhrf.length - 1]['x'] = screenX;
+    xywhrf[xywhrf.length - 1]['y'] = screenY;
     showImageCanvas();
   }
 }
 
+// 画像を30度回転させる
+function rotateImg(){
+  var rotate_num = 30;
+  xywhrf[xywhrf.length - 1]['r'] += rotate_num;
+  if(xywhrf[xywhrf.length - 1]['w'] >= 360) xywhrf[xywhrf.length - 1]['w'] -= 360;
+  showImageCanvas();
+}
 
-// 画像削除系
+/* 画像サイズ変更系 */
+// 画像サイズの拡大・縮小
+function scaleChange(isUp){
+  // 拡大・縮小するサイズxywhrf[xywhrf.length - 1]['x']xywhrf[xywhrf.length - 1]['x']
+  var scale_num = 5;
+  if(isUp == 'up'){
+    // 拡大処理
+    if(xywhrf[xywhrf.length - 1]['x'] + xywhrf[xywhrf.length - 1]['w'] + scale_num  <= SCREEN_WIDTH && xywhrf[xywhrf.length - 1]['y'] + xywhrf[xywhrf.length - 1]['h']  + scale_num <= SCREEN_HEIGHT){
+      xywhrf[xywhrf.length - 1]['w'] += scale_num;
+      xywhrf[xywhrf.length - 1]['h'] += scale_num;
+    }
+  }else{
+    if(xywhrf[xywhrf.length - 1]['w'] - scale_num > 0 && xywhrf[xywhrf.length - 1]['y'] - scale_num > 0){
+      xywhrf[xywhrf.length - 1]['w'] -= scale_num;
+      xywhrf[xywhrf.length - 1]['h'] -= scale_num;
+    }
+  }
+  // 再描写
+  showImageCanvas();
+}
+
+
+/* 画像削除系 */
 // 最後に更新した画像を削除
 function deleteImageCanvas(){
   // if( fileArray.length == 0){return false;}
   fileArray.pop();
-  xywh.pop();
+  xywhrf.pop();
   showImageCanvas();
 }
 
@@ -121,11 +154,12 @@ function addImageCanvas(img){
   var width  = img_file.width;
   var height = img_file.height;
   if(img_flg == 1){
+
     fileArray[0] = img_file.src;
-    xywh[0] = {x: 0, y: 0, w: width, h: height};
+    xywhrf[0] = {x: 0, y: 0, w: width, h: height, r: 0, f: 0};
   }else{
     fileArray.push(img_file.src);
-    xywh.push({x: 0, y: 0, w: width, h: height});
+    xywhrf.push({x: 0, y: 0, w: width, h: height, r: 0, f: 0});
   }
   showImageCanvas();
 }
@@ -166,7 +200,16 @@ function showImageCanvas(){
     canvas.width = 512;
     canvas.height = 512;
     for(var i in imageObjectArray){
-      ctx.drawImage(imageObjectArray[i], xywh[i]['x'], xywh[i]['y'], xywh[i]['w'], xywh[i]['h']);
+      if(xywhrf[i]['r'] != 0){
+        var rad = xywhrf[i]['r'] * Math.PI / 180;
+        ctx.setTransform(Math.cos(rad), Math.sin(rad), -Math.sin(rad), Math.cos(rad), 0, 0 );
+      }
+
+      if(xywhrf[i]['f'] != 0){
+        // 左右反転
+        ctx.scale(-1,1);
+      }
+      ctx.drawImage(imageObjectArray[i], xywhrf[i]['x'], xywhrf[i]['y'], xywhrf[i]['w'], xywhrf[i]['h']);
       imageObjectArray[i] = null;
     }
   }
@@ -181,7 +224,7 @@ function showImageCanvas(){
 // 参考URL : http://qiita.com/0829/items/a8c98c8f53b2e821ac94
 function SendImageCanvas(){
   // Base64への変換
-  var base64= canvas.toDataURL('image/png');
+  var base64 = canvas.toDataURL('image/png');
   // 以下にサーバーへ送る等のコードが必要
 }
 
