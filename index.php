@@ -1,9 +1,15 @@
 <?php
   $img_src = null;
-  if(isset($_FILES['image'])){
+  if(isset($_POST['uploadFile'])){
     //その中に画像パスがあるか検索します
-    $image_src = $_POST['file'];
+    $image_src = $_POST['uploadFile'];
   }
+
+  if(isset($_POST['editFile'])){
+    //その中に画像パスがあるか検索します
+    $image_src = $_POST['editFile'];
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +28,11 @@
   <script type="text/javascript" src="form.js"></script>
 </head>
 <body>
-<?php if(isset($_FILES['image']) == false) : ?>
+<?php if(isset($_POST['uploadFile']) == false && isset($_POST['editFile']) == false) : ?>
   <div id="contents">
-    <form name="input_form" method="POST" class="contact_page"　avtion="index.php" enctype="multipart/form-data">
+    <form name="input_form" method="POST" class="form_page"　avtion="index.php" enctype="multipart/form-data">
       <input type="file" name="image" id="image_file">
-      <input type="hidden" name="file" id="path">
+      <input type="hidden" name="uploadFile" id="path">
       <input type="submit" name="send" value="送信する">
     </form>
 
@@ -34,7 +40,7 @@
   </div>
 <?php endif; ?>
 
-<?php if(isset($_FILES['image'])) : ?>
+<?php if(isset($_POST['uploadFile'])) : ?>
   <div id="contents">
     <div id="logo"></div>
     <img id="canvas" src="img/layout/canvas_easel.png" alt="キャンバス">
@@ -81,10 +87,25 @@
     <div id="under_button">
       <input id="undo" type="image" src="img/layout/undo.png" alt="戻る" onclick="backImageCanvas()">
       <input id="return_top" type="image" src="img/layout/return_top.png" alt="トップへ" onclick="deleteAllImageCanvas()">
-      <input id="okBtn" type="image" src="img/layout/okBtn.png" alt="OK"　onclick="SendImageCanvas()">
+      <form name="input_form" method="POST" class="form_page"　avtion="index.php">
+        <input id="okBtn" type="image" src="img/layout/okBtn.png" alt="トップへ" onclick="Send()">
+        <input type="hidden" name="editFile" id="editImgPath">
+      </form>
+
     </div>
   </div>
 
+<?php endif; ?>
+
+<?php if(isset($_POST['editFile'])) : ?>
+  <div id="contents">
+<!--     <form name="input_form" method="POST" class="form_page"　avtion="index.php">
+      <input type="uploadFile" name="image" id="image_file">
+      <input type="hidden" name="uploadFile" id="path">
+      <input type="submit" name="send" value="送信する">
+    </form> -->
+    <img id="createdPreview" src="<?php echo $image_src; ?>">
+  </div>
 <?php endif; ?>
 </body>
 </html>

@@ -113,6 +113,16 @@ function goPreviousPage(){
   showImageCanvas();
 }
 
+/* Canvasで作成した画像をBase64に変換し、サーバーへ送る */
+// まだBase64に変換する部分しか実装していない
+// 参考URL : http://qiita.com/0829/items/a8c98c8f53b2e821ac94
+function Send(){
+  //Base64への変換
+  var base64 = this.canvas.toDataURL('image/png');
+  // 以下にサーバーへ送る等のコードが必要
+  document.getElementById("editImgPath").value = base64;
+}
+
 /*===============================================
 画像表示系
 ===============================================*/
@@ -431,8 +441,8 @@ function showImageCanvas(){
 
   // 画像の描画
   function drawImage(){
-    canvas.width = 512;
-    canvas.height = 512;
+    canvas.width = SCREEN_WIDTH;
+    canvas.height = SCREEN_HEIGHT;
 
     for(var i in imageObjectArray){
       if(xywhrf[i]['r'] != 0){
@@ -460,12 +470,5 @@ function showImageCanvas(){
   }
 }
 
-/* Canvasで作成した画像をBase64に変換し、サーバーへ送る */
-// まだBase64に変換する部分しか実装していない
-// 参考URL : http://qiita.com/0829/items/a8c98c8f53b2e821ac94
-function SendImageCanvas(){
-  // Base64への変換
-  var base64 = canvas.toDataURL('image/png');
-  // 以下にサーバーへ送る等のコードが必要
-}
+
 
