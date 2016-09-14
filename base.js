@@ -6,12 +6,13 @@ var SCREEN_WIDTH  = 450;
 var SCREEN_HEIGHT = 340;
 
 /* グローバル変数 */
+var php_val = null;
 // 現在のキャンバスナンバー
 var currentCanvasNum = -1;
 // ロードする画像パスの配列
-var fileArray = ["img/stamp/button1/bingata_1.jpg"];
+var fileArray = [];
 // ロードした画像の座標+横幅高さ
-var xywhrf = [{x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0}];
+var xywhrf = [];
 // 状態保存用の変数
 // 画像パス配列
 var previousFileArray = ["img/stamp/button1/bingata_1.jpg"];
@@ -33,6 +34,7 @@ var is_backButton = 0;
 ===============================================*/
 window.onload = function(){
   // ページ読み込み時に実行したい処理
+  addFirstImageCanvas();
   displayTab();
   displayImg();
   showImageCanvas();
@@ -339,6 +341,7 @@ function deleteAllImageCanvas(){
   // if( fileArray.length == 0){return false;}
   fileArray = [];
   xywhrf = [];
+  addFirstImageCanvas();
   showImageCanvas();
 }
 
@@ -360,6 +363,24 @@ function addImageCanvas(img){
     fileArray.push(img_file.src);
     xywhrf.push({x: 0, y: 0, w: width, h: height, r: 0, f: 0});
   }
+  showImageCanvas();
+}
+
+/* 最初に画像挿入する(テスト) */
+function addFirstImageCanvas(){
+  var img_file_1 = new Image();
+  var img_file_2 = new Image();
+  img_file_1.src = "img/stamp/button1/bingata_1.jpg";
+  img_file_2.src = image_src;
+  if ( !img_file_1.src && !img_file_2.src  ) { return false; }
+  var width_1  = img_file_1.width;
+  var height_1 = img_file_1.height;
+  var width_2  = img_file_2.width;
+  var height_2 = img_file_2.height;
+  fileArray[0] = img_file_1.src;
+  xywhrf[0] = {x: 0, y: 0, w: width_1, h: height_1, r: 0, f: 0};
+  fileArray[1] = img_file_2.src;
+  xywhrf[1] = {x: 0, y: 0, w: width_2, h: height_2, r: 0, f: 0};
   showImageCanvas();
 }
 

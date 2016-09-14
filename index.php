@@ -1,3 +1,11 @@
+<?php
+  $img_src = null;
+  if(isset($_FILES['image'])){
+    //その中に画像パスがあるか検索します
+    $image_src = $_POST['file'];
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,10 +14,27 @@
   <title>Bingator</title>
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="base.css">
+  <script type="text/javascript">
+    // 緊急処置・セキュリティ面からも推奨不可
+    var image_src = "<?php echo $image_src; ?>";
+  </script>
   <script type="text/javascript" src="base.js"></script>
+  <script type="text/javascript" src="form.js"></script>
 </head>
 <body>
+<?php if(isset($_FILES['image']) == false) : ?>
+  <div id="contents">
+    <form name="input_form" method="POST" class="contact_page"　avtion="index.php" enctype="multipart/form-data">
+      <input type="file" name="image" id="image_file">
+      <input type="hidden" name="file" id="path">
+      <input type="submit" name="send" value="送信する">
+    </form>
 
+    <img id="preview">
+  </div>
+<?php endif; ?>
+
+<?php if(isset($_FILES['image'])) : ?>
   <div id="contents">
     <div id="logo"></div>
     <img id="canvas" src="img/layout/canvas_easel.png" alt="キャンバス">
@@ -59,5 +84,7 @@
       <input id="okBtn" type="image" src="img/layout/okBtn.png" alt="OK"　onclick="SendImageCanvas()">
     </div>
   </div>
+
+<?php endif; ?>
 </body>
 </html>
