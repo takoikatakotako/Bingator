@@ -1,13 +1,31 @@
 <?php
-  $img_src = null;
+  // POSTされた情報を残す。
+  session_start();
+  /*===============================================
+  使用する変数
+  ===============================================*/
+  // アップロード画像ソース
+  $uploadIMG_src = null;
+  // プレビュー画像ソース
+  $previewIMG_srcc = null;
+
+  /*===============================================
+  POSTされたデータ
+  ===============================================*/
   if(isset($_POST['uploadFile'])){
     //その中に画像パスがあるか検索します
-    $image_src = $_POST['uploadFile'];
+    $uploadIMG_src = $_POST['uploadFile'];
+    $_SESSION['uploadFile'] = $_POST['uploadFile'];
+  }elseif(isset($_SESSION['uploadFile'])){
+    $uploadIMG_src = $_SESSION['uploadFile'];
   }
 
   if(isset($_POST['editFile'])){
     //その中に画像パスがあるか検索します
-    $image_src = $_POST['editFile'];
+    $previewIMG_src = $_POST['editFile'];
+    $_SESSION['editFile'] = $_POST['editFile'];
+  }elseif(isset($_SESSION['editFile'])){
+    $previewIMG_src = $_SESSION['editFile'];
   }
 
 ?>
@@ -22,25 +40,26 @@
   <link rel="stylesheet" href="base.css">
   <script type="text/javascript">
     // 緊急処置・セキュリティ面からも推奨不可
-    var image_src = "<?php echo $image_src; ?>";
+    var image_src = "<?php echo $uploadIMG_src; ?>";
   </script>
   <script type="text/javascript" src="base.js"></script>
   <script type="text/javascript" src="form.js"></script>
 </head>
 <body>
-<?php if(isset($_POST['uploadFile']) == false && isset($_POST['editFile']) == false) : ?>
+
+<?php if(isset($_POST['uploadFile']) == false && isset($_POST['editFile']) == false && isset($_POST['reviseEditPage']) == false) : ?>
   <div id="contents">
     <form name="input_form" method="POST" class="form_page"　avtion="index.php" enctype="multipart/form-data">
       <input type="file" name="image" id="image_file">
       <input type="hidden" name="uploadFile" id="path">
-      <input type="submit" name="send" value="送信する">
+      <input type="submit" name="send" value="あっぷろ～ど">
     </form>
 
     <img id="preview">
   </div>
 <?php endif; ?>
 
-<?php if(isset($_POST['uploadFile'])) : ?>
+<?php if(isset($_POST['uploadFile']) || isset($_POST['reviseEditPage'])) : ?>
   <div id="contents">
     <div id="logo"></div>
     <img id="canvas" src="img/layout/canvas_easel.png" alt="キャンバス">
@@ -86,7 +105,7 @@
     </div>
     <div id="under_button">
       <input id="undo" type="image" src="img/layout/undo.png" alt="戻る" onclick="backImageCanvas()">
-      <input id="return_top" type="image" src="img/layout/return_top.png" alt="トップへ" onclick="deleteAllImageCanvas()">
+      <input id="return_top" type="image" src="img/layout/return_top.png" alt="全消し" onclick="deleteAllImageCanvas()">
       <form name="input_form" method="POST" class="form_page"　avtion="index.php">
         <input id="okBtn" type="image" src="img/layout/okBtn.png" alt="トップへ" onclick="Send()">
         <input type="hidden" name="editFile" id="editImgPath">
@@ -99,12 +118,12 @@
 
 <?php if(isset($_POST['editFile'])) : ?>
   <div id="contents">
-<!--     <form name="input_form" method="POST" class="form_page"　avtion="index.php">
-      <input type="uploadFile" name="image" id="image_file">
-      <input type="hidden" name="uploadFile" id="path">
-      <input type="submit" name="send" value="送信する">
-    </form> -->
-    <img id="createdPreview" src="<?php echo $image_src; ?>">
+    <img id="createdPreview" src="<?php echo $previewIMG_src; ?>">
+    <form name="input_form" method="POST" class="form_page"　avtion="index.php">
+      <input type="hidden" name="completeFile" id="path">
+      <input type="submit" name="reviseEditPage" value="修正する">
+      <input type="submit" name="sendDB" value="送信する">
+    </form>
   </div>
 <?php endif; ?>
 </body>
