@@ -34,7 +34,7 @@ var x, y, relX, relY;
 // ドラッグしているかフラグ
 var dragging = false;
 // ドラッグしているオブジェクトNo
-var draggingNo = 0;
+var draggingNo = 1;
 
 /*===============================================
 ブラウザ読み込み時の開始
@@ -277,23 +277,23 @@ function getImgSrc(img_num){
 function moveArrow(arrow){
   switch(arrow){
     case 'left':
-      if(xywhrf[xywhrf.length - 1]['x'] >= 0){
-        xywhrf[xywhrf.length - 1]['x'] += -5;
+      if(xywhrf[draggingNo]['x'] >= 0){
+        xywhrf[draggingNo]['x'] += -5;
       }
       break;
     case 'right':
-      if(xywhrf[xywhrf.length - 1]['x'] + xywhrf[xywhrf.length - 1]['w'] <= SCREEN_WIDTH){
-        xywhrf[xywhrf.length - 1]['x'] += +5;
+      if(xywhrf[draggingNo]['x'] + xywhrf[draggingNo]['w'] <= SCREEN_WIDTH){
+        xywhrf[draggingNo]['x'] += +5;
       }
       break;
     case 'up':
-      if(xywhrf[xywhrf.length - 1]['y'] >= 0){
-        xywhrf[xywhrf.length - 1]['y'] += -5;
+      if(xywhrf[draggingNo]['y'] >= 0){
+        xywhrf[draggingNo]['y'] += -5;
       }
       break;
     case 'down':
-      if(xywhrf[xywhrf.length - 1]['y'] + xywhrf[xywhrf.length - 1]['h'] <= SCREEN_HEIGHT){
-        xywhrf[xywhrf.length - 1]['y'] += +5;
+      if(xywhrf[draggingNo]['y'] + xywhrf[draggingNo]['h'] <= SCREEN_HEIGHT){
+        xywhrf[draggingNo]['y'] += +5;
       }
       break;
   }
@@ -305,10 +305,10 @@ function moveArrow(arrow){
 // <canvas id="htmlCanvas" >のonclickに実装すると作動
 function moveClick(screenX, screenY){
   // 結果の書き出し
-  if(screenX >= 0 && screenX + xywhrf[xywhrf.length - 1]['w'] <= SCREEN_WIDTH && screenY >= 0 && screenY + xywhrf[xywhrf.length - 1]['h'] <= SCREEN_HEIGHT){
+  if(screenX >= 0 && screenX + xywhrf[draggingNo]['w'] <= SCREEN_WIDTH && screenY >= 0 && screenY + xywhrf[draggingNo]['h'] <= SCREEN_HEIGHT){
     // alert('screen=' + screenX + ',' + screenY);
-    xywhrf[xywhrf.length - 1]['x'] = screenX;
-    xywhrf[xywhrf.length - 1]['y'] = screenY;
+    xywhrf[draggingNo]['x'] = screenX;
+    xywhrf[draggingNo]['y'] = screenY;
     showImageCanvas();
   }
 }
@@ -323,12 +323,13 @@ function onDown(e) {
   y = e.clientY - offsetY;
 
   // オブジェクト上の座標かどうかを判定
-  for(var i=fileArray.length-1; i>0; i--){
+  for(var i　=　fileArray.length-1; i>0; i--){
     if (xywhrf[i]['x'] < x && (xywhrf[i]['x'] + xywhrf[i]['w']) > x && xywhrf[i]['y'] < y && (xywhrf[i]['y'] + xywhrf[i]['h']) > y) {
       dragging = true; // ドラッグ開始
       relX = xywhrf[i]['x']  - x;
       relY = xywhrf[i]['y']  - y;
       draggingNo = i;
+      break;
     }
   }
 
@@ -344,7 +345,7 @@ function onMove(e) {
   y = e.clientY - offsetY;
 
   // ドラッグが開始されていればオブジェクトの座標を更新して再描画
-  if (dragging　&& x + relX >= 0 && x + relX + xywhrf[xywhrf.length - 1]['w'] <= SCREEN_WIDTH && y + relY >= 0 && y + relY + xywhrf[xywhrf.length - 1]['h'] <= SCREEN_HEIGHT) {
+  if (dragging　&& x + relX >= 0 && x + relX + xywhrf[draggingNo]['w'] <= SCREEN_WIDTH && y + relY >= 0 && y + relY + xywhrf[draggingNo]['h'] <= SCREEN_HEIGHT) {
     xywhrf[draggingNo]['x'] = x + relX;
     xywhrf[draggingNo]['y'] = y + relY;
     showImageCanvas();
@@ -358,8 +359,8 @@ function onUp(e) {
 /* 画像を30度回転させる */
 function rotateImg(){
   var rotate_num = 30;
-  xywhrf[xywhrf.length - 1]['r'] += rotate_num;
-  if(xywhrf[xywhrf.length - 1]['w'] >= 360) xywhrf[xywhrf.length - 1]['w'] -= 360;
+  xywhrf[draggingNo]['r'] += rotate_num;
+  if(xywhrf[draggingNo]['w'] >= 360) xywhrf[draggingNo]['w'] -= 360;
   showImageCanvas();
 }
 
@@ -368,18 +369,18 @@ function rotateImg(){
 ===============================================*/
 // 画像サイズの拡大・縮小
 function scaleChange(isUp){
-  // 拡大・縮小するサイズxywhrf[xywhrf.length - 1]['x']xywhrf[xywhrf.length - 1]['x']
+  // 拡大・縮小するサイズxywhrf[draggingNo]['x']xywhrf[draggingNo]['x']
   var scale_num = 5;
   if(isUp == 'up'){
     // 拡大処理
-    if(xywhrf[xywhrf.length - 1]['x'] + xywhrf[xywhrf.length - 1]['w'] + scale_num  <= SCREEN_WIDTH && xywhrf[xywhrf.length - 1]['y'] + xywhrf[xywhrf.length - 1]['h']  + scale_num <= SCREEN_HEIGHT){
-      xywhrf[xywhrf.length - 1]['w'] += scale_num;
-      xywhrf[xywhrf.length - 1]['h'] += scale_num;
+    if(xywhrf[draggingNo]['x'] + xywhrf[draggingNo]['w'] + scale_num  <= SCREEN_WIDTH && xywhrf[draggingNo]['y'] + xywhrf[draggingNo]['h']  + scale_num <= SCREEN_HEIGHT){
+      xywhrf[draggingNo]['w'] += scale_num;
+      xywhrf[draggingNo]['h'] += scale_num;
     }
   }else{
-    if(xywhrf[xywhrf.length - 1]['w'] - scale_num > 0 && xywhrf[xywhrf.length - 1]['y'] - scale_num > 0){
-      xywhrf[xywhrf.length - 1]['w'] -= scale_num;
-      xywhrf[xywhrf.length - 1]['h'] -= scale_num;
+    if(xywhrf[draggingNo]['w'] - scale_num > 0 && xywhrf[draggingNo]['y'] - scale_num > 0){
+      xywhrf[draggingNo]['w'] -= scale_num;
+      xywhrf[draggingNo]['h'] -= scale_num;
     }
   }
   // 再描写
@@ -390,18 +391,14 @@ function scaleChange(isUp){
 /*===============================================
 画像削除系
 ===============================================*/
-/* 一つ前に戻す */
-// function backImageCanvas(){
-//   if( currentCanvasNum - 1 < 0){return false;}
-//   currentCanvasNum += -1;
-//   fileArray = previousFileArray[currentCanvasNum];
-//   xywhrf = previousXYWHRF[currentCanvasNum];
-//   alert("delete : " + previousXYWHRF[currentCanvasNum - 1][xywhrf.length - 1]['x'] + " " + previousXYWHRF[currentCanvasNum - 1][xywhrf.length - 1]['y']);
-//   previousFileArray.pop();
-//   previousXYWHRF.pop();
-//   is_backButton = 1;
-//   showImageCanvas();
-// }
+/* 選択削除 */
+function deleteImageCanvas(){
+  if( fileArray.length <= 2 && draggingNo == 1){return false;}
+  if(draggingNo == fileArray.length){draggingNo += -1;}
+  fileArray.splice(draggingNo,1);
+  xywhrf.splice(draggingNo,1);
+  showImageCanvas();
+}
 
 /* 全削除 */
 function deleteAllImageCanvas(){
@@ -460,16 +457,6 @@ function showImageCanvas(){
   var numFiles = fileArray.length;
   var loadedCount = 0;
   var imageObjectArray = [];
-
-  // if(is_backButton == 0){
-  //   // キャンバスナンバー更新
-  //   currentCanvasNum++;
-  //   // 1つ前の画像データを挿入
-  //   previousFileArray.push(fileArray);
-  //   // 1つ前の画像座標配列を挿入
-  //   previousXYWHRF.push(xywhrf);
-  // }
-
 
   is_backButton = 0;
   // 画像のロード

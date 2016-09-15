@@ -105,8 +105,8 @@
       <input id="scale_down" type="image" src="img/layout/mark_scale_down.png" alt="縮小" onclick="scaleChange('down')">
     </div>
     <div id="under_button">
-      <input id="undo" type="image" src="img/layout/undo.png" alt="戻る" onclick="backImageCanvas()">
-      <input id="return_top" type="image" src="img/layout/return_top.png" alt="全消し" onclick="deleteAllImageCanvas()">
+      <input id="undo" type="image" src="img/layout/undo.png" alt="選択削除" onclick="deleteImageCanvas()">
+      <input id="return_top" type="image" src="img/layout/return_top.png" alt="初期化" onclick="deleteAllImageCanvas()">
       <form name="input_form" method="POST" class="form_page"　avtion="index.php">
         <input id="okBtn" type="image" src="img/layout/okBtn.png" alt="トップへ" onclick="Send()">
         <input type="hidden" name="editFile" id="editImgPath">
