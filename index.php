@@ -64,7 +64,7 @@
   <div id="contents">
     <div id="logo"></div>
     <img id="canvas" src="img/layout/canvas_easel.png" alt="キャンバス">
-    <canvas id="htmlCanvas"onclick="moveClick(event.offsetX, event.offsetY)"></canvas>
+    <canvas id="htmlCanvas" ></canvas>
     <img id="blackBorad" src="img/layout/bunbougu_kokuban_edited2.png" alt="黒板">
     <div id="blackBorad_top">
       <input id="button1" type="image" src="img/layout/num_1.png" alt="背景" onclick="button1Clicked()">

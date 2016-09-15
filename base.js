@@ -20,6 +20,7 @@ var previousFileArray = ["img/stamp/button1/bingata_1.jpg"];
 var previousXYWHRF = [{x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0}];
 // Canvas変数
 var canvas = null;
+var ctx = null;
 // ボタン選択フラグ
 var img_flg = 1;
 // タブ選択フラグ
@@ -28,12 +29,25 @@ var tab_flg = 1;
 var scroll_flg = 1;
 // 戻しButtonを押したかフラグ
 var is_backButton = 0;
+// ドラッグ＆ドロップ機能の座標変数
+var x, y, relX, relY;
+// ドラッグしているかフラグ
+var dragging = false;
+// ドラッグしているオブジェクトNo
+var draggingNo = 0;
 
 /*===============================================
 ブラウザ読み込み時の開始
 ===============================================*/
 window.onload = function(){
   // ページ読み込み時に実行したい処理
+  // Canvas要素
+  canvas = document.getElementById('htmlCanvas');
+  if ( ! canvas || ! canvas.getContext ) { return false; }
+  ctx = canvas.getContext('2d');
+  canvas.addEventListener('mousedown', onDown, false);
+  canvas.addEventListener('mousemove', onMove, false);
+  canvas.addEventListener('mouseup', onUp, false);
   addFirstImageCanvas();
   displayTab();
   displayImg();
@@ -288,6 +302,7 @@ function moveArrow(arrow){
 
 /* クリックした座標を取得し、配列末尾の画像座標変更 */
 // マウスイベントを設定
+// <canvas id="htmlCanvas" >のonclickに実装すると作動
 function moveClick(screenX, screenY){
   // 結果の書き出し
   if(screenX >= 0 && screenX + xywhrf[xywhrf.length - 1]['w'] <= SCREEN_WIDTH && screenY >= 0 && screenY + xywhrf[xywhrf.length - 1]['h'] <= SCREEN_HEIGHT){
@@ -296,6 +311,48 @@ function moveClick(screenX, screenY){
     xywhrf[xywhrf.length - 1]['y'] = screenY;
     showImageCanvas();
   }
+}
+
+function onDown(e) {
+  // キャンバスの左上端の座標を取得
+  var offsetX = canvas.getBoundingClientRect().left;
+  var offsetY = canvas.getBoundingClientRect().top;
+
+  // マウスが押された座標を取得
+  x = e.clientX - offsetX;
+  y = e.clientY - offsetY;
+
+  // オブジェクト上の座標かどうかを判定
+  for(var i=fileArray.length-1; i>0; i--){
+    if (xywhrf[i]['x'] < x && (xywhrf[i]['x'] + xywhrf[i]['w']) > x && xywhrf[i]['y'] < y && (xywhrf[i]['y'] + xywhrf[i]['h']) > y) {
+      dragging = true; // ドラッグ開始
+      relX = xywhrf[i]['x']  - x;
+      relY = xywhrf[i]['y']  - y;
+      draggingNo = i;
+    }
+  }
+
+}
+
+function onMove(e) {
+  // キャンバスの左上端の座標を取得
+  var offsetX = canvas.getBoundingClientRect().left;
+  var offsetY = canvas.getBoundingClientRect().top;
+
+  // マウスが移動した先の座標を取得
+  x = e.clientX - offsetX;
+  y = e.clientY - offsetY;
+
+  // ドラッグが開始されていればオブジェクトの座標を更新して再描画
+  if (dragging) {
+    xywhrf[draggingNo]['x'] = x + relX;
+    xywhrf[draggingNo]['y'] = y + relY;
+    showImageCanvas();
+  }
+}
+
+function onUp(e) {
+  dragging = false; // ドラッグ終了
 }
 
 /* 画像を30度回転させる */
@@ -403,10 +460,6 @@ function showImageCanvas(){
   var numFiles = fileArray.length;
   var loadedCount = 0;
   var imageObjectArray = [];
-  // Canvas要素
-  canvas = document.getElementById('htmlCanvas');
-  if ( ! canvas || ! canvas.getContext ) { return false; }
-  var ctx = canvas.getContext('2d');
 
   // if(is_backButton == 0){
   //   // キャンバスナンバー更新
