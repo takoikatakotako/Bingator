@@ -38,6 +38,8 @@ body {
 }
 
 #htmlCanvas{
+  width: 450px;
+  height: 340px;
   position: absolute; top: 180px; left:90px;
 }
 

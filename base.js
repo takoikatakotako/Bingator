@@ -38,7 +38,7 @@ window.onload = function(){
   displayTab();
   displayImg();
   showImageCanvas();
-}
+};
 
 /*===============================================
 HTML側にクリックイベント
