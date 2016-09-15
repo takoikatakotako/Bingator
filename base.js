@@ -1,7 +1,7 @@
 /*===============================================
 変数・定数
 ===============================================*/
-// Canvas内の横幅・縦幅
+// Canvas内の横幅・縦幅(定数)
 var SCREEN_WIDTH  = 450;
 var SCREEN_HEIGHT = 340;
 
@@ -344,7 +344,7 @@ function onMove(e) {
   y = e.clientY - offsetY;
 
   // ドラッグが開始されていればオブジェクトの座標を更新して再描画
-  if (dragging) {
+  if (dragging　&& x + relX >= 0 && x + relX + xywhrf[xywhrf.length - 1]['w'] <= SCREEN_WIDTH && y + relY >= 0 && y + relY + xywhrf[xywhrf.length - 1]['h'] <= SCREEN_HEIGHT) {
     xywhrf[draggingNo]['x'] = x + relX;
     xywhrf[draggingNo]['y'] = y + relY;
     showImageCanvas();
