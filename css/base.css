@@ -12,7 +12,7 @@ body {
 #contents{
   width: 1280px;
   height: 720px;
-  background: url(img/layout/bg_natural_ocean.jpg);
+  background: url(../img/layout/bg_natural_ocean.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   position:static;
