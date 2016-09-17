@@ -119,14 +119,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bingator</title>
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/base.css">
   <script type="text/javascript">
     // 緊急処置・セキュリティ面からも推奨不可
     var image_src = "<?php echo $uploadIMG_src; ?>";
   </script>
-  <script type="text/javascript" src="base.js"></script>
-  <script type="text/javascript" src="form.js"></script>
+  <script type="text/javascript" src="js/base.js"></script>
+  <script type="text/javascript" src="js/form.js"></script>
 </head>
 <body>
 
