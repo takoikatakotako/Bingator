@@ -134,12 +134,14 @@
 
 <?php if(isset($_POST['uploadFile']) == false && isset($_POST['editFile']) == false && isset($_POST['reviseEditPage']) == false) : ?>
   <div id="contents">
-    <form name="input_form" method="POST" class="form_page"　avtion="index.php" enctype="multipart/form-data">
-      <!-- accept要素を写真限定にしたいが機能してないっぽい -->
-      <input type="file" name="image" id="image_file"　accept="image/*">
-      <input type="hidden" name="uploadFile" id="path">
-      <input type="submit" name="send" value="あっぷろ～ど">
-    </form>
+    <div id="input_formDiv">
+      <form name="input_form"  method="POST" class="form_page"　avtion="index.php" enctype="multipart/form-data">
+        <!-- accept要素を写真限定にしたいが機能してないっぽい -->
+        <input type="file" name="image" id="image_file"　accept="image/*">
+        <input type="hidden" name="uploadFile" id="path">
+        <input type="submit" name="send" value="あっぷろ～ど">
+      </form>
+    </div>
 
     <img id="preview">
   </div>
@@ -151,9 +153,6 @@
 
 
   <div id="contents">
-
-
-
     <div id="leftContents">
       <div id="logo">
         <img id="logoImage" src="/img/layout/bingatorLogo.png" alt="ロゴ">

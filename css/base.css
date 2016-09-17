@@ -18,6 +18,12 @@ body {
   margin: 0 auto;
 }
 
+#input_formDiv{
+  width: 600px;
+  padding-top: 250px;
+  margin: 0 auto;
+}
+
 
 #leftContents{
   width: 640px;
