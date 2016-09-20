@@ -15,9 +15,27 @@ body {
   background: url(../img/layout/bg_natural_ocean.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  position:static;
+  margin: 0 auto;
 }
 
+#input_formDiv{
+  width: 600px;
+  padding-top: 250px;
+  margin: 0 auto;
+}
+
+#leftContents{
+  width: 640px;
+  height: 720px;
+  float: left;
+}
+
+#rightContents{
+  width: 640px;
+  height: 720px;
+  float: left;
+  position: relative;
+}
 
 #logo{
   width: 303px;
@@ -28,20 +46,43 @@ body {
   position:absolute; top: 30px; left:70px;
 }
 
+
 /*===============================================
 左側に配置しているCanvas設定
 ===============================================*/
-#canvas{
+
+#logo{
+
+}
+
+#logoImage{
+  width: 303px;
+  height: 72px;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+#canvasAndCanvas{
+  position: relative;
+}
+
+#canvasImage{
   width: 550px;
   height: 600px;
-  position: absolute; top: 110px; left:40px;
+  position:absolute; top:10px; left:25px
 }
 
 #htmlCanvas{
   width: 450px;
   height: 340px;
-  position: absolute; top: 180px; left:90px;
+  position:absolute; top:80px; left:75px
 }
+
+
+
+
+
+
 
 /*===============================================
 右側に配置している黒板設定
@@ -50,7 +91,7 @@ body {
 #blackBorad{
   width: 600px;
   height: 680px;
-  position: absolute; top: 40px; left:640px;
+  position: absolute; top: 40px; left:0px;
 }
 
 #blackBorad_top input {
@@ -60,23 +101,23 @@ body {
 
 /*　黒板上部に配置しているButton設定　*/
 #button1{
-  position: absolute; top: 60px; left:690px;
+  position: absolute; top: 60px; left:50px;
 }
 
 #button2{
-  position: absolute; top: 60px; left:790px;
+  position: absolute; top: 60px; left:150px;
 }
 
 #button3{
-  position: absolute; top: 60px; left:890px;
+  position: absolute; top: 60px; left:250px;
 }
 
 #button4{
-  position: absolute; top: 60px; left:990px;
+  position: absolute; top: 60px; left:350px;
 }
 
 #button5{
-  position: absolute; top: 60px; left:1090px;
+  position: absolute; top: 60px; left:450px;
 }
 
 /*　黒板上部に配置しているTab設定　*/
@@ -86,15 +127,15 @@ body {
 }
 
 #tab1{
-  position: absolute; top: 160px; left:690px;
+  position: absolute; top: 160px; left:50px;
 }
 
 #tab2{
-  position: absolute; top: 160px; left:810px;
+  position: absolute; top: 160px; left:170px;
 }
 
 #tab3{
-  position: absolute; top: 160px; left:930px;
+  position: absolute; top: 160px; left:290px;
 }
 
 #blackBord_center input{
@@ -104,43 +145,43 @@ body {
 
 /*　黒板真ん中に配置しているImg設定　*/
 #img_1{
-  position: absolute; top: 220px; left:690px;
+  position: absolute; top: 220px; left:50px;
 }
 
 #img_2{
-  position: absolute; top: 220px; left:790px;
+  position: absolute; top: 220px; left:150px;
 }
 
 #img_3{
-  position: absolute; top: 220px; left:890px;
+  position: absolute; top: 220px; left:250px;
 }
 
 #img_4{
-  position: absolute; top: 220px; left:990px;
+  position: absolute; top: 220px; left:350px;
 }
 
 #img_5{
-  position: absolute; top: 220px; left:1090px;
+  position: absolute; top: 220px; left:450px;
 }
 
 #img_6{
-  position: absolute; top: 320px; left:690px;
+  position: absolute; top: 320px; left:50px;
 }
 
 #img_7{
-  position: absolute; top: 320px; left:790px;
+  position: absolute; top: 320px; left:150px;
 }
 
 #img_8{
-  position: absolute; top: 320px; left:890px;
+  position: absolute; top: 320px; left:250px;
 }
 
 #img_9{
-  position: absolute; top: 320px; left:990px;
+  position: absolute; top: 320px; left:350px;
 }
 
 #img_10{
-  position: absolute; top: 320px; left:1090px;
+  position: absolute; top: 320px; left:450px;
 }
 
 /*　黒板真ん中のサイドに配置しているSideBar設定　*/
@@ -150,11 +191,11 @@ body {
 }
 
 #pageup{
-  position: absolute; top: 180px; left:1170px;
+  position: absolute; top: 180px; left:530px;
 }
 
 #pagedown{
-  position: absolute; top: 380px; left:1170px;
+  position: absolute; top: 380px; left:530px;
 }
 
 /*　黒板下部に配置している矢印Button設定　*/
@@ -164,35 +205,35 @@ body {
 }
 
 #arrow_lef{
-  position: absolute; top: 450px; left:670px;
+  position: absolute; top: 450px; left:30px;
 }
 
 #arrow_up{
-  position: absolute; top: 450px; left:740px;
+  position: absolute; top: 450px; left:100px;
 }
 
 #arrow_right{
-  position: absolute; top: 450px; left:810px;
+  position: absolute; top: 450px; left:170px;
 }
 
 #arrow_down{
-  position: absolute; top: 450px; left:880px;
+  position: absolute; top: 450px; left:240px;
 }
 
 #arrow_rotate{
-  position: absolute; top: 450px; left:950px;
+  position: absolute; top: 450px; left:310px;
 }
 
 #arrow_flip{
-  position: absolute; top: 450px; left:1020px;
+  position: absolute; top: 450px; left:380px;
 }
 
 #scale_up{
-  position: absolute; top: 450px; left:1090px;
+  position: absolute; top: 450px; left:450px;
 }
 
 #scale_down{
-  position: absolute; top: 450px; left:1160px;
+  position: absolute; top: 450px; left:520px;
 }
 
 /*===============================================
@@ -205,13 +246,13 @@ body {
 }
 
 #undo{
-  position: absolute; top: 600px; left:920px;
+  position: absolute; top: 600px; left:280px;
 }
 
 #return_top{
-  position: absolute; top: 600px; left:1040px;
+  position: absolute; top: 600px; left:400px;
 }
 
 #okBtn{
-  position: absolute; top: 600px; left:1160px;
+  position: absolute; top: 600px; left:520px;
 }
