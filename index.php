@@ -28,7 +28,6 @@
     $previewIMG_src = $_SESSION['editFile'];
   }
 
-/*
 
   // 画像のリサイズ
   if(isset($_POST['uploadFile'])){
@@ -63,7 +62,7 @@
         // メモリを開放する
     imagedestroy($new_image);
     imagedestroy($original_image);
-*/
+
     // 出力
     //imagejpeg($resized, null, 100);
 
@@ -112,6 +111,7 @@
     // }
 
  // }
+
 
 ?>
 
@@ -234,11 +234,11 @@
   </div>
 <?php endif; ?>
 
-<!--
+
 
 <p><?php print_r($resized); ?></p>
 <p><?php echo $uploadIMG_src; ?></p>
--->
+
 
 </body>
 </html>

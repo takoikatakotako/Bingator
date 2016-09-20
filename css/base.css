@@ -24,7 +24,6 @@ body {
   margin: 0 auto;
 }
 
-
 #leftContents{
   width: 640px;
   height: 720px;
@@ -36,6 +35,15 @@ body {
   height: 720px;
   float: left;
   position: relative;
+}
+
+#logo{
+  width: 303px;
+  height: 72px;
+  background: url(../img/layout/bingatorLogo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position:absolute; top: 30px; left:70px;
 }
 
 
