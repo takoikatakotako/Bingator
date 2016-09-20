@@ -87,8 +87,17 @@
       <h2>ご注文が完了しました。</h2>
     <?php 
 
-      mail('inferior.to.octopus@gmail.com', 'My Subject', 'aessage');
-    }else{ 
+
+      mb_language("Japanese");
+      mb_internal_encoding("UTF-8");
+
+      $to      = 'inferior.to.octopus@gmail.com';
+      $subject = '注文受けたで';
+      $message = '注文受けました。';
+      $headers = 'From: info@bingater.com' . "\r\n";
+
+      mb_send_mail($to, $subject, $message, $headers);
+      }else{ 
 
     ?>
 
