@@ -1,0 +1,136 @@
+body{
+	background: linear-gradient(#2595c7, #285294);
+}
+header{
+	margin: 30px 80px;
+	text-align: center;
+}
+h1 {
+	margin-top: 30px;
+	padding: 1em;
+	border: 3px solid #ccc;
+	border-radius: 3em .7em 2em .7em/.7em 2em .7em 3em;
+	background-color: white;
+}
+div.container{
+	position: relative;
+	width: 100%; 
+	height: auto !important; 
+	height: 100%; 
+	min-height: 100%;
+	margin: 0 auto;
+	width: 800px;
+}
+table{
+	border-collapse: collapse;
+	border: 1px solid #d5d5d2;
+	width: 100%;
+	margin-top: 60px;
+}
+table th, table td{
+	border-style: dotted;
+	border-width: 1px;
+	border-color: #d5d5d2;
+}
+table th{
+	width: 100px;
+	background-color: #eeeeee;
+	text-align: left;
+	font-size: 15px;
+	padding: 15px;
+}
+table td{
+	background-color: white;
+	text-align: left;
+	height: 75px;
+}
+input{
+	width: 90%;
+	margin: 0 10px;
+	font-weight: 900;
+	font-size: 16px;
+	padding: 4px;
+	height: 50px;
+}
+.form{
+	font-weight: 900;
+	font-size: 1.25em
+}
+select{
+	height: 35px;
+	width: 12em;
+	padding: 5px;
+	font-size: 1.0em;
+	border-radius: 5px;
+	text-indent: 1em;
+	background: #d2b48c;
+	font-family: 'century gothic', sans-serif;
+}
+input#submit_button{
+	width: 300px;
+	height: 60px;
+	margin: 60px 0 60px 180px;
+	font-size: 1.8em;
+	font-weight: 900;
+	border-radius: 10px;
+	background: #d2b48c;
+	border: none;
+}
+#mainbody div{
+	text-align: center;
+}
+
+@media screen and (max-width: 480px){
+	.graph table th{
+		font-size: 13px;
+		font-weight: bold;
+		width: 30%
+	}
+	.graph table td{
+		font-size: 13px;
+		font-weight: bold;
+	}
+	.graph table td input{
+		font-size: 15px;
+		font-weight: bold;
+        margin: 3px 10px;
+	} 
+	input#submit_button{
+		width: 150px;
+		height: 40px;
+		font-size: 20px;
+		margin: 40px 100px;
+	}  
+}
+#hissu11,#hissu12,#hissu21,#hissu22,#hissu23,#hissu31,#hissu41,#hissu42{
+	color: red;
+	margin: 0 0 10px 10px;
+	display: none;
+}
+
+.error{
+	color: red;
+}
+.correct{
+	padding: 5px;
+}
+#back_button{
+	margin-top: 40px;
+	width: 200px;
+	height: 60px;
+	font-size: 1.8em;
+	font-weight: 900;
+	border-radius: 10px;
+	background: #d2b48c;
+	border: none;
+}
+#complete_button{
+	margin-top: 40px;
+	width: 200px;
+	height: 60px;
+	font-size: 1.8em;
+	font-weight: 900;
+	border-radius: 10px;
+	background: #d2b48c;
+	border: none;
+}
