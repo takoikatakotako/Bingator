@@ -12,7 +12,7 @@ body {
 #contents{
   width: 1280px;
   height: 720px;
-  background: url(img/layout/bg_natural_ocean.jpg);
+  background: url(../img/layout/bg_natural_ocean.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   position:static;
@@ -22,7 +22,7 @@ body {
 #logo{
   width: 303px;
   height: 72px;
-  background: url(img/layout/bingatorLogo.png);
+  background: url(../img/layout/bingatorLogo.png);
   background-size: cover;
   background-repeat: no-repeat;
   position:absolute; top: 30px; left:70px;
