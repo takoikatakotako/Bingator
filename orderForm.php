@@ -85,7 +85,12 @@
 
     <?php if(isset($_POST["complete"])){?>
       <h2>ご注文が完了しました。</h2>
-    <?php }else{ ?>
+    <?php 
+
+      mail('inferior.to.octopus@gmail.com', 'My Subject', 'aessage');
+    }else{ 
+
+    ?>
 
   <article>
     <form method="post" name="form1">
