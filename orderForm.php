@@ -1,15 +1,3 @@
-<!DOCTYPE>
-<html lang="ja">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="stylesheet"type="text/css"href="gasshuku.css">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-</head>
-<body>
-
-  <header>
-  <h1>注文フォーム</h1>
-  </header>
 
   <?php
 
@@ -73,109 +61,120 @@
     $error_message['mail'] = 'メールアドレスを記入してください';
   }elseif(mb_strlen($mail) > 40){
     $error_message['mail'] = '40文字以内で記入してください';
-  }elseif(!preg_match("/^[a-zA-Z0-9]+$/", $mail)) {
+  }elseif(!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $mail)) {
     $error_message['mail'] = '半角英数字で記入してください';
   }
 
 }
 ?>
 
-<div class="container">
+<!DOCTYPE>
+<html lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="css/orderForm.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body>
 
-<?php if(isset($_POST["complete"])){?>
+  <header>
+    <h1>注文フォーム</h1>
+  </header>
 
-<h2>ご注文が完了しました。</h2>
+  <div class="container">
 
-<?php }else{ ?>
+    <?php if(isset($_POST["complete"])){?>
+      <h2>ご注文が完了しました。</h2>
+    <?php }else{ ?>
 
-<article>
-  <form method="post" name="form1">
-    <section class=graph>
-      <table>
-        <tr>
-          <th scope="row"><p class="form">名前</p></th>
-          <td>
-          <?php if(!$_POST || (isset($_POST["submit"]) && !empty($error_message)) || isset($_POST["back"])){ ?>
-            <input type="text" name="name" class="text" id="element1" value="<?php if(isset($namae)){ echo $name; } ?>" />
-            <?php if(isset($error_message['name'])){ ?>
+  <article>
+    <form method="post" name="form1">
+      <section class=graph>
+        <table>
+          <tr>
+            <th scope="row"><p class="form">名前</p></th>
+            <td>
+            <?php if(!$_POST || (isset($_POST["submit"]) && !empty($error_message)) || isset($_POST["back"])){ ?>
+              <input type="text" name="name" class="text" id="element1" value="<?php if(isset($namae)){ echo $name; } ?>" />
+              <?php if(isset($error_message['name'])){ ?>
+              <p class="error">
+              <?php echo $error_message['name']; ?>
+              </p>
+            <?php }
+            }else{ ?>
+              <p class="correct">
+              <?php echo $name; ?>
+              </p>
+            <?php } ?>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><p class="form">住所</p></th>
+            <td>
+            <?php if(!$_POST || (isset($_POST["submit"]) && !empty($error_message)) || isset($_POST["back"])){ ?>
+              <input type="text" name="add" class="text" id="element2" value="<?php if(isset($add)){ echo $add; } ?>" />
+              <?php if(isset($error_message['add'])){ ?>
             <p class="error">
-            <?php echo $error_message['name']; ?>
+            <?php echo $error_message['add']; ?>
             </p>
-          <?php }
-          }else{ ?>
-            <p class="correct">
-            <?php echo $name; ?>
+            <?php }
+            }else{ ?>
+              <p class="correct">
+              <?php echo $add; ?>
+              </p>
+            <?php } ?>
+          </tr>
+          <tr>
+            <th scope="row"><p class="form">電話番号</p></th>
+            <td>
+            <?php if(!$_POST || (isset($_POST["submit"]) && !empty($error_message)) || isset($_POST["back"])){ ?>
+              <input type="text" name="num" class="text" id="element2" value="<?php if(isset($num)){ echo $num; } ?>" />
+              <?php if(isset($error_message['num'])){ ?>
+            <p class="error">
+            <?php echo $error_message['num']; ?>
             </p>
-          <?php } ?>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row"><p class="form">住所</p></th>
-          <td>
-          <?php if(!$_POST || (isset($_POST["submit"]) && !empty($error_message)) || isset($_POST["back"])){ ?>
-            <input type="text" name="add" class="text" id="element2" value="<?php if(isset($add)){ echo $add; } ?>" />
-            <?php if(isset($error_message['add'])){ ?>
-          <p class="error">
-          <?php echo $error_message['add']; ?>
-          </p>
-          <?php }
-          }else{ ?>
-            <p class="correct">
-            <?php echo $add; ?>
+            <?php }
+            }else{ ?>
+              <p class="correct">
+              <?php echo $num; ?>
+              </p>
+            <?php } ?>
+          </tr>
+          <tr>
+            <th scope="row"><p class="form">メールアドレス</p></th>
+            <td>
+            <?php if(!$_POST || (isset($_POST["submit"]) && !empty($error_message)) || isset($_POST["back"])){ ?>
+              <input type="text" name="mail" class="text" id="element2" value="<?php if(isset($mail)){ echo $mail; } ?>" />
+              <?php if(isset($error_message['mail'])){ ?>
+            <p class="error">
+            <?php echo $error_message['mail']; ?>
             </p>
-          <?php } ?>
-        </tr>
-        <tr>
-          <th scope="row"><p class="form">電話番号</p></th>
-          <td>
-          <?php if(!$_POST || (isset($_POST["submit"]) && !empty($error_message)) || isset($_POST["back"])){ ?>
-            <input type="text" name="num" class="text" id="element2" value="<?php if(isset($num)){ echo $num; } ?>" />
-            <?php if(isset($error_message['num'])){ ?>
-          <p class="error">
-          <?php echo $error_message['num']; ?>
-          </p>
-          <?php }
-          }else{ ?>
-            <p class="correct">
-            <?php echo $num; ?>
-            </p>
-          <?php } ?>
-        </tr>
-        <tr>
-          <th scope="row"><p class="form">メールアドレス</p></th>
-          <td>
-          <?php if(!$_POST || (isset($_POST["submit"]) && !empty($error_message)) || isset($_POST["back"])){ ?>
-            <input type="text" name="mail" class="text" id="element2" value="<?php if(isset($mail)){ echo $mail; } ?>" />
-            <?php if(isset($error_message['mail'])){ ?>
-          <p class="error">
-          <?php echo $error_message['mail']; ?>
-          </p>
-          <?php }
-          }else{ ?>
-            <p class="correct">
-            <?php echo $mail; ?>
-            </p>
-          <?php } ?>
-        </tr>
-      </table>
-    </section>
-    <?php if(!$_POST || (isset($_POST["submit"]) && !empty($error_message)) || isset($_POST["back"])){ ?>
-    <section id="send">
-      <input id="submit_button" type="submit" value="送信する" name="submit" />
-    </section>
-    <section id="confirm">
-    <?php }else{?>
-      <input id="back_button" type="submit" value="修正する" name="back" />
-      <input id="complete_button" type="submit" value="送信する" name="complete" />
-    <?php } ?>
-    </section>
-  </form>
-</article>
-<?php } ?>
-</div>
+            <?php }
+            }else{ ?>
+              <p class="correct">
+              <?php echo $mail; ?>
+              </p>
+            <?php } ?>
+          </tr>
+        </table>
+      </section>
+      <?php if(!$_POST || (isset($_POST["submit"]) && !empty($error_message)) || isset($_POST["back"])){ ?>
+      <section id="send">
+        <input id="submit_button" type="submit" value="送信する" name="submit" />
+      </section>
+      <section id="confirm">
+      <?php }else{?>
+        <input id="back_button" type="submit" value="修正する" name="back" />
+        <input id="complete_button" type="submit" value="送信する" name="complete" />
+      <?php } ?>
+      </section>
+    </form>
+  </article>
+  <?php } ?>
+  </div>
 
 
-<footer></footer>
+  <footer></footer>
 
-</body>
+  </body>
 </html>
