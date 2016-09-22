@@ -172,7 +172,7 @@ body {
 #blackBord_center input{
   width: 80px;
   height: 80px;
-  margin: 20px 8px 0;
+  margin: 20px 6px 0;
 }
 
 #blackBord_img{
@@ -249,7 +249,7 @@ body {
 #blackBoard_under input {
   width: 60px;
   height: 60px;
-  margin: 20px 2px 0;
+  margin: 20px 5px 0;
 }
 
 #arrow_lef{
@@ -288,7 +288,7 @@ body {
 下に配置しているメニュー操作設定
 ===============================================*/
 #under_button{
-  margin-top: 90px;
+  margin-top: 0;
 }
 
 #under_button:after {
