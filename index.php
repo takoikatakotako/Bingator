@@ -220,14 +220,26 @@
 
 <?php endif; ?>
 
+<!-- 完成画面の表示-->
 <?php if(isset($_POST['editFile'])) : ?>
   <div id="contents">
-    <img id="createdPreview" src="<?php echo $previewIMG_src; ?>">
-    <form name="input_form" method="POST" class="form_page"　avtion="index.php">
-      <input type="hidden" name="completeFile" id="path">
-      <input type="submit" name="reviseEditPage" value="修正する">
-      <input type="submit" name="sendDB" value="送信する">
-    </form>
+    <div id="leftSendContents">
+      <img id="canvathImage" src="img/layout/canvas_easel_without_top.png">
+      <img id="createdPreview" src="<?php echo $previewIMG_src; ?>">
+    </div>
+    <div id="rightSendContents">
+      <form name="input_form" method="POST" class="form_page"　avtion="index.php">
+        <input type="hidden" name="completeFile" id="path">
+
+        <button id="sentBtn" type="submit" name="sendDB" value="">
+          <img id ="sentBtnImage" src="/img/layout/sentBtn.png">
+        </button>
+
+        <button id="modifyBtn" type="submit" name="reviseEditPage" value="">
+          <img id ="modifyBtnImage" src="/img/layout/modifyBtn.png">
+        </button>
+      </form>
+    </div>
   </div>
 <?php endif; ?>
 
