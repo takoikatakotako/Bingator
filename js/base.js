@@ -447,7 +447,21 @@ function addImageCanvas(img){
 
   //img_flg == 1でありスタンプモードでない時以下の壁紙モード
   if(img_flg == 1 && stampModeFlug != 1){
+
     //壁紙(?)モード
+
+    //表示してあるイラストと表示するものは違うためあれだ、いれかえる、
+    //リファクタリングよろしく！！はーと
+    //ねむい
+    if (img == 'img_1') {
+      img_file.src = "img/stamp/button1/bingata_1_cleared.png";
+    }else if (img == 'img_2'){
+      img_file.src = "img/stamp/button1/bingata_2_cleared.png";
+    }else if (img == 'img_3'){
+      img_file.src = "img/stamp/button1/bingata_3_cleared.png";
+    }
+
+
     fileArray[0] = img_file.src;
     xywhrf[0] = {x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0};
 
