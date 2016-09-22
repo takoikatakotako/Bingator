@@ -237,9 +237,9 @@
       <form name="input_form" method="POST" class="form_page"　avtion="index.php">
         <input type="hidden" name="completeFile" id="path">
 
-        <button id="sentBtn" type="submit" name="sendDB" value="">
+        <a id="sentBtn" href="orderForm.php" title="注文画面へ">
           <img id ="sentBtnImage" src="/img/layout/sentBtn.png">
-        </button>
+        </a>
 
         <button id="modifyBtn" type="submit" name="reviseEditPage" value="">
           <img id ="modifyBtnImage" src="/img/layout/modifyBtn.png">
