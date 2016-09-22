@@ -288,7 +288,7 @@ body {
 下に配置しているメニュー操作設定
 ===============================================*/
 #under_button{
-  float: left;
+  margin-top: 90px;
 }
 
 #under_button:after {
@@ -302,11 +302,20 @@ body {
 #under_button input{
   width: 120px;
   height: 120px;
+  float: right;
 }
 
 #under_button form{
   width: 120px;
   height: 120px;
+}
+
+#deleteButton{
+  float: right;
+}
+
+#formButton{
+  float: right;
 }
 
 #undo{
