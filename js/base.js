@@ -497,17 +497,44 @@ function showImageCanvas(){
       ctx.drawImage(imageObjectArray[i], xywhrf[i]['x'], xywhrf[i]['y'], xywhrf[i]['w'], xywhrf[i]['h']);
       imageObjectArray[i] = null;
     }
+
+
+
+
+  // Imageオブジェクトを生成 
+  var img = new Image();
+  img.src = "img/layout/shirt_omote.png?" + new Date().getTime();
+  // 画像が読み込まれるのを待ってから処理を続行 
+  img.onload = function() {
+    ctx.drawImage(img, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+  }
+
+/*
+    //色を指定する
+    ctx.strokeStyle = 'rgb(00,00,255)'; //枠線の色は青
+    ctx.fillStyle = 'rgb(255,00,00)'; //塗りつぶしの色は赤
+
+
+      ctx.strokeStyle = '#009900';
+  ctx.strokeRect(50, 50, 200, 200);
+    //左から200上から80の位置に、幅100高さ50の四角の枠線を描く
+    ctx.strokeRect(200,80,100,50);
+    //左から150上から75の位置に、半径60の半円を反時計回り（左回り）で描く
+    ctx.arc(150,75,60,Math.PI*1,Math.PI*2,true);
+*/
   }
 
   // 画像のロード・描写実行
   if(fileArray.length == 0){
-  ctx.beginPath();
-  ctx.fillStyle = 'rgb(255, 255, 255)';
-  ctx.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-  ctx.fill();
+    ctx.beginPath();
+    ctx.fillStyle = 'rgb(255, 255, 255)';
+    ctx.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    ctx.fill();
   }else{
     loadImages();
   }
+
+
 }
 
 
