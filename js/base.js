@@ -3,21 +3,17 @@
 ===============================================*/
 // Canvas内の横幅・縦幅(定数)
 var SCREEN_WIDTH  = 450;
-var SCREEN_HEIGHT = 340;
+var SCREEN_HEIGHT = 400;
 
 /* グローバル変数 */
 var php_val = null;
-// 現在のキャンバスナンバー
-var currentCanvasNum = -1;
+// 現在のcanvasの色
+var canvasColor = 'rgb(255, 255, 255)';
 // ロードする画像パスの配列
 var fileArray = [];
 // ロードした画像の座標+横幅高さ
 var xywhrf = [];
-// 状態保存用の変数
-// 画像パス配列
-var previousFileArray = ["img/stamp/button1/bingata_1.jpg"];
-// 画像座標配列
-var previousXYWHRF = [{x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0}];
+
 // Canvas変数
 var canvas = null;
 var ctx = null;
@@ -443,12 +439,36 @@ function addFirstImageCanvas(){
   var height_1 = img_file_1.height;
   var width_2  = img_file_2.width;
   var height_2 = img_file_2.height;
-  fileArray[0] = img_file_1.src;
-  xywhrf[0] = {x: 0, y: 0, w: width_1, h: height_1, r: 0, f: 0};
-  fileArray[1] = img_file_2.src;
-  xywhrf[1] = {x: 0, y: 0, w: width_2, h: height_2, r: 0, f: 0};
-  fileArray[2] = img_file_3.src;
-  xywhrf[2] = {x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0};
+  // fileArray[0] = img_file_1.src;
+  // xywhrf[0] = {x: 0, y: 0, w: width_1, h: height_1, r: 0, f: 0};
+  // fileArray[0] = img_file_2.src;
+  // xywhrf[0] = {x: 0, y: 0, w: width_2, h: height_2, r: 0, f: 0};
+  fileArray[0] = img_file_3.src;
+  xywhrf[0] = {x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0};
+}
+
+/*===============================================
+canvas色変更
+===============================================*/
+function changeColor(colorName){
+  switch(colorName){
+    case 'pink':
+      canvasColor = 'rgb(235, 174, 156)';
+      break;
+    case 'blue':
+      canvasColor = 'rgb(21, 104, 146)';
+      break;
+    case 'cream':
+      canvasColor = 'rgb(248, 240, 225)';
+      break;
+    case 'green':
+      canvasColor = 'rgb(128, 208, 205)';
+      break;
+    case 'orange':
+      canvasColor = 'rgb(148, 65, 65)';
+      break;
+  }
+  showImageCanvas();
 }
 
 /*===============================================
@@ -488,6 +508,10 @@ function showImageCanvas(){
     canvas.height = SCREEN_HEIGHT;
     var img = new Image();
     img.src = "img/layout/shirt_omote.png";
+    ctx.beginPath();
+    ctx.fillStyle = canvasColor;
+    ctx.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    ctx.fill();
 
     for(var i in imageObjectArray){
       if(xywhrf[i]['r'] != 0){
@@ -509,7 +533,7 @@ function showImageCanvas(){
   // 画像のロード・描写実行
   if(fileArray.length == 0){
     ctx.beginPath();
-    ctx.fillStyle = 'rgb(255, 255, 255)';
+    ctx.fillStyle = canvasColor;
     ctx.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     ctx.fill();
   }else{
