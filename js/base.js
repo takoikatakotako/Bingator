@@ -434,8 +434,10 @@ function addImageCanvas(img){
 function addFirstImageCanvas(){
   var img_file_1 = new Image();
   var img_file_2 = new Image();
+  var img_file_3 = new Image();
   img_file_1.src = "img/stamp/button1/bingata_1.jpg";
   img_file_2.src = image_src;
+  img_file_3.src = "img/layout/shirt_omote.png";
   if ( !img_file_1.src && !img_file_2.src  ) { return false; }
   var width_1  = img_file_1.width;
   var height_1 = img_file_1.height;
@@ -445,7 +447,8 @@ function addFirstImageCanvas(){
   xywhrf[0] = {x: 0, y: 0, w: width_1, h: height_1, r: 0, f: 0};
   fileArray[1] = img_file_2.src;
   xywhrf[1] = {x: 0, y: 0, w: width_2, h: height_2, r: 0, f: 0};
-  showImageCanvas();
+  fileArray[2] = img_file_3.src;
+  xywhrf[2] = {x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0};
 }
 
 /*===============================================
@@ -483,6 +486,8 @@ function showImageCanvas(){
   function drawImage(){
     canvas.width = SCREEN_WIDTH;
     canvas.height = SCREEN_HEIGHT;
+    var img = new Image();
+    img.src = "img/layout/shirt_omote.png";
 
     for(var i in imageObjectArray){
       if(xywhrf[i]['r'] != 0){
@@ -497,31 +502,8 @@ function showImageCanvas(){
       ctx.drawImage(imageObjectArray[i], xywhrf[i]['x'], xywhrf[i]['y'], xywhrf[i]['w'], xywhrf[i]['h']);
       imageObjectArray[i] = null;
     }
-
-
-
-
-  // Imageオブジェクトを生成 
-  var img = new Image();
-  img.src = "img/layout/shirt_omote.png?" + new Date().getTime();
-  // 画像が読み込まれるのを待ってから処理を続行 
-  img.onload = function() {
+    // Imageオブジェクトを生成
     ctx.drawImage(img, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-  }
-
-/*
-    //色を指定する
-    ctx.strokeStyle = 'rgb(00,00,255)'; //枠線の色は青
-    ctx.fillStyle = 'rgb(255,00,00)'; //塗りつぶしの色は赤
-
-
-      ctx.strokeStyle = '#009900';
-  ctx.strokeRect(50, 50, 200, 200);
-    //左から200上から80の位置に、幅100高さ50の四角の枠線を描く
-    ctx.strokeRect(200,80,100,50);
-    //左から150上から75の位置に、半径60の半円を反時計回り（左回り）で描く
-    ctx.arc(150,75,60,Math.PI*1,Math.PI*2,true);
-*/
   }
 
   // 画像のロード・描写実行
@@ -533,8 +515,6 @@ function showImageCanvas(){
   }else{
     loadImages();
   }
-
-
 }
 
 
