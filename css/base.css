@@ -136,6 +136,7 @@ body {
 
 /*　黒板上部に配置しているTab設定　*/
 #blackBorad_tab{
+  height: 53px;
   margin: 0 25px;
 }
 
@@ -249,7 +250,7 @@ body {
 #blackBoard_under input {
   width: 60px;
   height: 60px;
-  margin: 20px 5px 0;
+  margin: 20px 2px 0;
 }
 
 #arrow_lef{
@@ -288,7 +289,7 @@ body {
 下に配置しているメニュー操作設定
 ===============================================*/
 #under_button{
-  margin-top: 0;
+  margin-top: 80px;
 }
 
 #under_button:after {
