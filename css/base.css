@@ -329,3 +329,56 @@ body {
 #okBtn{
 /*  position: absolute; top: 600px; left:520px;*/
 }
+
+
+/*===============================================
+プレビュー画面
+===============================================*/
+
+#leftSendContents{
+  width: 800px;
+  height: 720px;
+  float: left;
+  position: relative;
+}
+
+#rightSendContents{
+  width: 480px;
+  height: 720px;
+  float: left;
+  position: relative;
+}
+
+#canvathImage{
+  width: 680px;
+  height: 680px;
+  position:absolute; top:20px; left:20px;
+}
+
+#createdPreview{
+  width: 580px;
+  height: 430px;
+  position:absolute; top:40px; left:70px;
+}
+
+#sentBtn{
+  position:absolute; top:70px; left:50px;
+}
+
+#sentBtnImage{
+  width:350px;
+  height: 230px;
+}
+
+
+#modifyBtn{
+  position:absolute; top:350px; left:50px;
+
+}
+
+#modifyBtnImage{
+  width:350px;
+  height: 230px;
+}
+
+
