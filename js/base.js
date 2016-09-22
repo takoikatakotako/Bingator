@@ -260,7 +260,7 @@ function getImgSrc(img_num){
       src = "img/stamp/button" + img_flg + "/img_" + img_num + ".png";
       break;
     case 4:
-      src = "img/stamp/button" + img_flg + "/img_" + img_num + ".png";
+      src = "img/stamp/button" + img_flg + "/animal-" + img_num + ".png";
       break;
     case 5:
       src = "img/stamp/button" + img_flg + "/img_" + img_num + ".png";

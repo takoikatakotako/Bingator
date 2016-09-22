@@ -29,39 +29,39 @@
   }
 
 
-  // 画像のリサイズ
-  if(isset($_POST['uploadFile'])){
-    $new_width = 100;
+  // // 画像のリサイズ
+  // if(isset($_POST['uploadFile'])){
+  //   $new_width = 100;
 
-    // 元画像のファイルサイズを取得
-    list($original_width, $original_height) = getimagesize($uploadIMG_src);
+  //   // 元画像のファイルサイズを取得
+  //   list($original_width, $original_height) = getimagesize($uploadIMG_src);
 
-    //元画像の比率を計算し、高さを設定
-    $proportion = $original_width / $original_height;
-    $new_height = $new_width / $proportion;
+  //   //元画像の比率を計算し、高さを設定
+  //   $proportion = $original_width / $original_height;
+  //   $new_height = $new_width / $proportion;
 
-    //高さが幅より大きい場合は、高さを幅に合わせ、横幅を縮小
-    if($proportion < 1){
-        $new_height = $new_width;
-        $new_width = $new_width * $proportion;
-    }
+  //   //高さが幅より大きい場合は、高さを幅に合わせ、横幅を縮小
+  //   if($proportion < 1){
+  //       $new_height = $new_width;
+  //       $new_width = $new_width * $proportion;
+  //   }
 
-    $_str = substr( $uploadIMG_src , 22 , strlen($uploadIMG_src)-22 );
-    // ↓64baseデコード
-    $decoded = base64_decode($_str);
+  //   $_str = substr( $uploadIMG_src , 22 , strlen($uploadIMG_src)-22 );
+  //   // ↓64baseデコード
+  //   $decoded = base64_decode($_str);
 
-    // コンテントタイプを指定
-    header('Content-Type: image/jpeg');
+  //   // コンテントタイプを指定
+  //   header('Content-Type: image/jpeg');
 
-    $resized = imagecreatetruecolor($new_width,$new_height);
-    $decoded = imagecreatefromstring($decoded);
-    // imagecopyresampled($resized, $decoded, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-    // 元画像から再サンプリング
-    ImageCopyResampled($resized, $decoded,0,0,0,0,$new_width,$new_height,$original_width,$original_height);
+  //   $resized = imagecreatetruecolor($new_width,$new_height);
+  //   $decoded = imagecreatefromstring($decoded);
+  //   // imagecopyresampled($resized, $decoded, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+  //   // 元画像から再サンプリング
+  //   ImageCopyResampled($resized, $decoded,0,0,0,0,$new_width,$new_height,$original_width,$original_height);
 
-        // メモリを開放する
-    imagedestroy($new_image);
-    imagedestroy($original_image);
+  //       // メモリを開放する
+  //   imagedestroy($new_image);
+  //   imagedestroy($original_image);
 
     // 出力
     //imagejpeg($resized, null, 100);
@@ -149,17 +149,14 @@
 
 <?php if(isset($_POST['uploadFile']) || isset($_POST['reviseEditPage'])) : ?>
 
-
-
-
   <div id="contents">
     <div id="leftContents">
       <div id="logo">
-        <img id="logoImage" src="/img/layout/bingatorLogo.png" alt="ロゴ">
+        <img id="logoImage" src="img/layout/bingatorLogo.png" alt="ロゴ">
       </div>
 
       <div id="canvasAndCanvas">
-        <img id="canvasImage" src="/img/layout/canvas_easel.png" alt="キャンバス">
+        <img id="canvasImage" src="img/layout/canvas_easel.png" alt="キャンバス">
         <canvas id="htmlCanvas" ></canvas>
       </div>
     </div>
@@ -233,12 +230,6 @@
     </form>
   </div>
 <?php endif; ?>
-
-
-
-<p><?php print_r($resized); ?></p>
-<p><?php echo $uploadIMG_src; ?></p>
-
 
 </body>
 </html>
