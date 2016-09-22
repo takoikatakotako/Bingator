@@ -98,16 +98,22 @@ function button5Clicked() {
 function tab1Clicked(){
   scroll_flg = 1;
   tab_flg = 1;
+  displayTab();
+  displayImg();
 }
 
 function tab2Clicked(){
   scroll_flg = 1;
   tab_flg = 2;
+  displayTab();
+  displayImg();
 }
 
 function tab3Clicked(){
   scroll_flg = 1;
   tab_flg = 3;
+  displayTab();
+  displayImg();
 }
 
 /* 前後ページ切り替え */
@@ -247,7 +253,14 @@ function getImgSrc(img_num){
   var src = "";
   switch(img_flg){
     case 1:
-      src = "img/stamp/button" + img_flg + "/bingata_" + img_num + ".png";
+      switch(tab_flg){
+        case 1:
+          src = "img/stamp/button" + img_flg + "/bg-" + img_num + ".png";
+          break;
+        case 2:
+          src = "img/stamp/button" + img_flg + "/bingata_" + img_num + ".png";
+          break;
+      }
       break;
     case 2:
       src = "img/stamp/button" + img_flg + "/img_" + img_num + ".png";
