@@ -449,7 +449,7 @@ function addImageCanvas(img){
     //１だとスタンプ状態
     if (stampModeFlug == 1) {
       fileArray.push(img_file.src);
-      xywhrf.push({x: 0, y: 0, w: width, h: height, r: 0, f: 0});
+      xywhrf.push({x: SCREEN_WIDTH*0.3, y: SCREEN_HEIGHT*0.3, w: width, h: height, r: 0, f: 0});
     }else{
       fileArray[0] = img_file.src;
       xywhrf[0] = {x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0};
@@ -457,7 +457,7 @@ function addImageCanvas(img){
 
   }else{
     fileArray.push(img_file.src);
-    xywhrf.push({x: 0, y: 0, w: width, h: height, r: 0, f: 0});
+    xywhrf.push({x: SCREEN_WIDTH*0.3, y: SCREEN_HEIGHT*0.3, w: width, h: height, r: 0, f: 0});
   }
   showImageCanvas();
 }
