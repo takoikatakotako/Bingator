@@ -32,6 +32,10 @@ var dragging = false;
 // ドラッグしているオブジェクトNo
 var draggingNo = 1;
 
+
+//スタンプモードか壁紙モードかを見分けるフラグ、主にimg_flg = 1;の時の判別に使用
+var stampModeFlug = 1;
+
 /*===============================================
 ブラウザ読み込み時の開始
 ===============================================*/
@@ -96,6 +100,12 @@ function button5Clicked() {
 
 /* タブクリックイベント */
 function tab1Clicked(){
+
+  //もしも img_flg == 1のときクリックされたらスタンプモードへ切り替え
+  if (img_flg == 1) {
+    stampModeFlug = 1;
+  }
+
   scroll_flg = 1;
   tab_flg = 1;
   displayTab();
@@ -103,6 +113,12 @@ function tab1Clicked(){
 }
 
 function tab2Clicked(){
+
+  //もしも img_flg == 1のときクリックされたら非スタンプモードへ切り替え
+  if (img_flg == 1) {
+    stampModeFlug = 0;
+  }
+
   scroll_flg = 1;
   tab_flg = 2;
   displayTab();
@@ -428,9 +444,17 @@ function addImageCanvas(img){
   if ( !img_file.src ) { return false; }
   var width  = img_file.width;
   var height = img_file.height;
+
   if(img_flg == 1){
-    fileArray[0] = img_file.src;
-    xywhrf[0] = {x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0};
+    //１だとスタンプ状態
+    if (stampModeFlug == 1) {
+      fileArray.push(img_file.src);
+      xywhrf.push({x: 0, y: 0, w: width, h: height, r: 0, f: 0});
+    }else{
+      fileArray[0] = img_file.src;
+      xywhrf[0] = {x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0};
+    }
+
   }else{
     fileArray.push(img_file.src);
     xywhrf.push({x: 0, y: 0, w: width, h: height, r: 0, f: 0});
