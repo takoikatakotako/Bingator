@@ -182,16 +182,16 @@
         </div>
         <div id="blackBord_center">
           <div id="blackBord_img">
-            <input id="img_1" type="image" src="img/stamp/button1/bingata_1.jpg" alt="img1" onclick="addImageCanvas('img_1')">
-            <input id="img_2" type="image" src="img/stamp/button1/bingata_2.jpg" alt="img2" onclick="addImageCanvas('img_2')">
-            <input id="img_3" type="image" src="img/stamp/button1/bingata_3.jpg" alt="img3" onclick="addImageCanvas('img_3')">
-            <input id="img_4" type="image" src="img/stamp/button1/bingata_4.jpg" alt="img4" onclick="addImageCanvas('img_4')">
-            <input id="img_5" type="image" src="img/stamp/button1/bingata_5.jpg" alt="img5" onclick="addImageCanvas('img_5')">
-            <input id="img_6" type="image" src="img/stamp/button1/bingata_6.jpg" alt="img6" onclick="addImageCanvas('img_6')">
-            <input id="img_7" type="image" src="img/stamp/button1/bingata_7.jpg" alt="img7" onclick="addImageCanvas('img_7')">
-            <input id="img_8" type="image" src="img/stamp/button1/bingata_8.jpg" alt="img8" onclick="addImageCanvas('img_8')">
-            <input id="img_9" type="image" src="img/stamp/button1/bingata_9.jpg" alt="img9" onclick="addImageCanvas('img_9')">
-            <input id="img_10" type="image" src="img/stamp/button1/bingata_10.jpg" alt="img10" onclick="addImageCanvas('img_10')">
+            <input id="img_1" type="image" src="img/stamp/button1/bingata_1.png" alt="img1" onclick="addImageCanvas('img_1')">
+            <input id="img_2" type="image" src="img/stamp/button1/bingata_2.png" alt="img2" onclick="addImageCanvas('img_2')">
+            <input id="img_3" type="image" src="img/stamp/button1/bingata_3.png" alt="img3" onclick="addImageCanvas('img_3')">
+            <input id="img_4" type="image" src="img/stamp/button1/bingata_4.png" alt="img4" onclick="addImageCanvas('img_4')">
+            <input id="img_5" type="image" src="img/stamp/button1/bingata_5.png" alt="img5" onclick="addImageCanvas('img_5')">
+            <input id="img_6" type="image" src="img/stamp/button1/bingata_6.png" alt="img6" onclick="addImageCanvas('img_6')">
+            <input id="img_7" type="image" src="img/stamp/button1/bingata_7.png" alt="img7" onclick="addImageCanvas('img_7')">
+            <input id="img_8" type="image" src="img/stamp/button1/bingata_8.png" alt="img8" onclick="addImageCanvas('img_8')">
+            <input id="img_9" type="image" src="img/stamp/button1/bingata_9.png" alt="img9" onclick="addImageCanvas('img_9')">
+            <input id="img_10" type="image" src="img/stamp/button1/bingata_10.png" alt="img10" onclick="addImageCanvas('img_10')">
           </div>
           <div id="blackBord_side">
             <input id="pageup" type="image" src="img/layout/pageup.png" alt="前のページ" onclick="goPreviousPage()">

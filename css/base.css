@@ -159,7 +159,7 @@ body {
 }
 
 #blackBord_center{
-
+  height: 205px;
 }
 
 #blackBord_center:after {

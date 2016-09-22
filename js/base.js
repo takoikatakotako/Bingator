@@ -247,7 +247,7 @@ function getImgSrc(img_num){
   var src = "";
   switch(img_flg){
     case 1:
-      src = "img/stamp/button" + img_flg + "/bingata_" + img_num + ".jpg";
+      src = "img/stamp/button" + img_flg + "/bingata_" + img_num + ".png";
       break;
     case 2:
       src = "img/stamp/button" + img_flg + "/img_" + img_num + ".png";
@@ -416,9 +416,8 @@ function addImageCanvas(img){
   var width  = img_file.width;
   var height = img_file.height;
   if(img_flg == 1){
-
     fileArray[0] = img_file.src;
-    xywhrf[0] = {x: 0, y: 0, w: width, h: height, r: 0, f: 0};
+    xywhrf[0] = {x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0};
   }else{
     fileArray.push(img_file.src);
     xywhrf.push({x: 0, y: 0, w: width, h: height, r: 0, f: 0});
