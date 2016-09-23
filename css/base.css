@@ -362,26 +362,25 @@ body {
   position:absolute; top:40px; left:70px;
 }
 
+
 #sentBtn{
-  position:absolute; top:70px; left:50px;
+  position:absolute; top:90px; left:80px;
 }
 
 #sentBtnImage{
-  width:350px;
-  height: 230px;
+  width:250px;
 }
 
 
 #modifyBtn{
-  position:absolute; top:350px; left:50px;
+  position:absolute; top:330px; left:80px;
 
   background:none;
   border:0;
 }
 
 #modifyBtnImage{
-  width:350px;
-  height: 230px;
+  width:250px;
 }
 
 
