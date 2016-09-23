@@ -37,6 +37,7 @@
   <title>かりゆしに〜びち</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/base.css">
+  <link rel="shortcut icon" href="img/favicon.ico" />
   <script type="text/javascript" src="js/base.js"></script>
   <script type="text/javascript" src="js/form.js"></script>
 </head>

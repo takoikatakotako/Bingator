@@ -74,6 +74,7 @@
   <title>かりゆしに〜びち 申し込みフォーム</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="css/orderForm.css">
+  <link rel="shortcut icon" href="img/favicon.ico" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
