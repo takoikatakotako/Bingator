@@ -375,6 +375,8 @@ body {
 #modifyBtn{
   position:absolute; top:350px; left:50px;
 
+  background:none;
+  border:0;
 }
 
 #modifyBtnImage{

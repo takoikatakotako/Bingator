@@ -37,8 +37,8 @@
     //名前のエラー設定
     if($name == '') {
       $error_message['name'] = "名前を記入してください";
-    }elseif(mb_strlen($name) > 10){
-      $error_message['name'] = '10文字以内で記入してください';
+    }elseif(mb_strlen($name) > 20){
+      $error_message['name'] = '20文字以内で記入してください';
     }
 
     //住所のエラー設定

@@ -137,7 +137,7 @@
           <img id ="sentBtnImage" src="img/layout/sentBtn.png">
         </a>
 
-        <button id="modifyBtn" type="submit" name="reviseEditPage" value="" onclick="Modify()">
+        <button id="modifyBtn" type="submit" name="reviseEditPage" onclick="Modify()">
           <img id ="modifyBtnImage" src="img/layout/modifyBtn.png">
         </button>
       </form>
