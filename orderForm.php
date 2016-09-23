@@ -71,6 +71,7 @@
 <!DOCTYPE>
 <html lang="ja">
 <head>
+  <title>かりゆしに〜びち 申し込みフォーム</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="css/orderForm.css">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -85,7 +86,7 @@
 
     <?php if(isset($_POST["complete"])){?>
       <h2>ご注文が完了しました。</h2>
-    <?php 
+    <?php
 
       //メール送信
       mb_language("Japanese");
@@ -95,7 +96,7 @@
       $message = '注文承りました。';
       $headers = 'From: info@bingater.com' . "\r\n";
       mb_send_mail($to, $subject, $message, $headers);
-      }else{ 
+      }else{
 
     ?>
 
