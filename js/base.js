@@ -476,21 +476,9 @@ function addImageCanvas(img){
 /* 最初に画像挿入する(テスト) */
 function addFirstImageCanvas(){
   var img_file_1 = new Image();
-  var img_file_2 = new Image();
-  var img_file_3 = new Image();
-  img_file_1.src = "img/stamp/button1/bingata_1.jpg";
-  img_file_2.src = image_src;
-  img_file_3.src = "img/layout/shirt_omote.png";
-  if ( !img_file_1.src && !img_file_2.src  ) { return false; }
-  var width_1  = img_file_1.width;
-  var height_1 = img_file_1.height;
-  var width_2  = img_file_2.width;
-  var height_2 = img_file_2.height;
-  // fileArray[0] = img_file_1.src;
-  // xywhrf[0] = {x: 0, y: 0, w: width_1, h: height_1, r: 0, f: 0};
-  // fileArray[0] = img_file_2.src;
-  // xywhrf[0] = {x: 0, y: 0, w: width_2, h: height_2, r: 0, f: 0};
-  fileArray[0] = img_file_3.src;
+  img_file_1.src = "img/layout/shirt_omote.png";
+  if ( !img_file_1.src ) { return false; }
+  fileArray[0] = img_file_1.src;
   xywhrf[0] = {x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0};
 }
 
@@ -499,6 +487,9 @@ canvas色変更
 ===============================================*/
 function changeColor(colorName){
   switch(colorName){
+    case 'white':
+      canvasColor = 'rgb(255, 255, 255)';
+      break;
     case 'pink':
       canvasColor = 'rgb(235, 174, 156)';
       break;
