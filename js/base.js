@@ -481,10 +481,6 @@ function addImageCanvas(img){
 function addFirstImageCanvas(){
   var img_file_1 = new Image();
   img_file_1.src = "img/layout/shirt_omote.png";
-  if(document.getElementById("fileArray").value != ""){
-    fileArray = document.getElementById("fileArray").value;
-    xywhrf = document.getElementById("xywhrf").value ;
-  }
   if ( !img_file_1.src || fileArray.length > 0 ) {
     alert(fileArray);
     return false;
