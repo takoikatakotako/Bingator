@@ -99,7 +99,7 @@
           <input id="arrow_up" type="image" src="img/layout/mark_arrow_up.png" alt="上" onclick="moveArrow('up')">
           <input id="arrow_right" type="image" src="img/layout/mark_arrow_right.png" alt="右" onclick="moveArrow('right')">
           <input id="arrow_down" type="image" src="img/layout/mark_arrow_down.png" alt="下" onclick="moveArrow('down')">
-          <input id="arrow_rotate" type="image" src="img/layout/mark_arrow_reload.png" alt="回転" onclick="rotateImg()">
+          <input id="arrow_rotate" type="image" src="img/layout/mark_arrow_reload.png" alt="回転" onclick="">
           <input id="arrow_flip" type="image" src="img/layout/mark_arrow_uturn.png" alt="左右反転" onclick="">
           <input id="scale_up" type="image" src="img/layout/mark_scale_up.png" alt="拡大" onclick="scaleChange('up')">
           <input id="scale_down" type="image" src="img/layout/mark_scale_down.png" alt="縮小" onclick="scaleChange('down')">
@@ -134,11 +134,11 @@
         <input type="hidden" name="completeFile" id="path">
 
         <a id="sentBtn" href="orderForm.php" title="注文画面へ">
-          <img id ="sentBtnImage" src="/img/layout/sentBtn.png">
+          <img id ="sentBtnImage" src="img/layout/sentBtn.png">
         </a>
 
-        <button id="modifyBtn" type="submit" name="reviseEditPage" value="">
-          <img id ="modifyBtnImage" src="/img/layout/modifyBtn.png">
+        <button id="modifyBtn" type="submit" name="reviseEditPage" value="" onclick="Modify()">
+          <img id ="modifyBtnImage" src="img/layout/modifyBtn.png">
         </button>
       </form>
     </div>

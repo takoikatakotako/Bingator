@@ -155,6 +155,10 @@ function Send(){
   document.getElementById("editImgPath").value = base64;
 }
 
+function Modify(){
+
+}
+
 /*===============================================
 画像表示系
 ===============================================*/
@@ -477,7 +481,14 @@ function addImageCanvas(img){
 function addFirstImageCanvas(){
   var img_file_1 = new Image();
   img_file_1.src = "img/layout/shirt_omote.png";
-  if ( !img_file_1.src ) { return false; }
+  if(document.getElementById("fileArray").value != ""){
+    fileArray = document.getElementById("fileArray").value;
+    xywhrf = document.getElementById("xywhrf").value ;
+  }
+  if ( !img_file_1.src || fileArray.length > 0 ) {
+    alert(fileArray);
+    return false;
+  }
   fileArray[0] = img_file_1.src;
   xywhrf[0] = {x: 0, y: 0, w: SCREEN_WIDTH, h: SCREEN_HEIGHT, r: 0, f: 0};
 }
