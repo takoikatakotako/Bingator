@@ -1,0 +1,386 @@
+@charset "UTF-8";
+
+/*===============================================
+Body部分
+===============================================*/
+
+body {
+  margin: 0;
+
+}
+
+#contents{
+  width: 1280px;
+  height: 720px;
+  background: url(../img/layout/bg_natural_ocean.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+#input_formDiv{
+  width: 600px;
+  padding-top: 250px;
+  margin: 0 auto;
+}
+
+#leftContents{
+  width: 60px;
+  height: 720px;
+  float: left;
+  margin-top: 100px;
+}
+
+#leftContents input{
+  width: 40px;
+  height: 40px;
+  margin: 15px 10px;
+}
+
+#centerContents{
+  width: 560px;
+  height: 720px;
+  margin-top: 30px;
+  float: left;
+}
+
+#rightContents{
+  width: 640px;
+  height: 720px;
+  margin-top: 65px;
+  float: left;
+  position: relative;
+}
+
+
+/*===============================================
+左側に配置しているCanvas設定
+===============================================*/
+
+#logo{
+  width: 303px;
+  height: 72px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+#logoImage{
+  width: 303px;
+  height: 72px;
+}
+
+#canvasAndCanvas{
+  position: relative;
+  width: 550px;
+  height: 680px;
+  background: url(../img/layout/canvas_easel.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#canvasImage{
+  width: 550px;
+  height: 600px;
+}
+
+#htmlCanvas{
+  width: 450px;
+  height: 400px;
+  position:relative; top:80px; left:50px
+}
+
+/*===============================================
+右側に配置している黒板設定
+===============================================*/
+
+#blackBorad{
+  width: 610px;
+  height: 650px;
+  background: url(../img/layout/bunbougu_kokuban_edited2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#blackBorad_top{
+  margin: 0 25px;
+}
+
+#blackBorad_top input {
+  width: 80px;
+  height: 80px;
+  margin: 20px 12px 0;
+}
+
+/*　黒板上部に配置しているButton設定　*/
+#button1{
+/*  position: absolute; top: 60px; left:50px;*/
+}
+
+#button2{
+/*  position: absolute; top: 60px; left:150px;*/
+}
+
+#button3{
+/*  position: absolute; top: 60px; left:250px;*/
+}
+
+#button4{
+/*  position: absolute; top: 60px; left:350px;*/
+}
+
+#button5{
+/*  position: absolute; top: 60px; left:450px;*/
+}
+
+/*　黒板上部に配置しているTab設定　*/
+#blackBorad_tab{
+  height: 53px;
+  margin: 0 25px;
+}
+
+#blackBorad_tab input{
+  width: 100px;
+  height: 30px;
+  margin: 20px 12px 0;
+}
+
+#tab1{
+/*  position: absolute; top: 160px; left:50px;*/
+}
+
+#tab2{
+/*  position: absolute; top: 160px; left:170px;*/
+}
+
+#tab3{
+/*  position: absolute; top: 160px; left:290px;*/
+}
+
+#blackBord_center{
+  height: 205px;
+}
+
+#blackBord_center:after {
+  display:block;
+  clear:both;
+  height: 0;
+  visibility:hidden;
+  content:".";
+}
+
+#blackBord_center input{
+  width: 80px;
+  height: 80px;
+  margin: 20px 6px 0;
+}
+
+#blackBord_img{
+  width: 500px;
+  margin-left: 35px;
+  float: left;
+}
+
+/*　黒板真ん中に配置しているImg設定　*/
+#img_1{
+/*  position: absolute; top: 220px; left:50px;*/
+}
+
+#img_2{
+/*  position: absolute; top: 220px; left:150px;*/
+}
+
+#img_3{
+/*  position: absolute; top: 220px; left:250px;*/
+}
+
+#img_4{
+/*  position: absolute; top: 220px; left:350px;*/
+}
+
+#img_5{
+/*  position: absolute; top: 220px; left:450px;*/
+}
+
+#img_6{
+/*  position: absolute; top: 320px; left:50px;*/
+}
+
+#img_7{
+/*  position: absolute; top: 320px; left:150px;*/
+}
+
+#img_8{
+/*  position: absolute; top: 320px; left:250px;*/
+}
+
+#img_9{
+/*  position: absolute; top: 320px; left:350px;*/
+}
+
+#img_10{
+/*  position: absolute; top: 320px; left:450px;*/
+}
+
+/*　黒板真ん中のサイドに配置しているSideBar設定　*/
+#blackBord_side{
+  width: 35px;
+  float:left;
+}
+
+#blackBord_side input {
+  width: 50px;
+  height: 50px;
+}
+
+#pageup{
+
+}
+
+#pagedown{
+  position: relative; top: 135px;
+}
+
+/*　黒板下部に配置している矢印Button設定　*/
+#blackBoard_under{
+  margin: 0 25px;
+}
+
+#blackBoard_under input {
+  width: 60px;
+  height: 60px;
+  margin: 20px 2px 0;
+}
+
+#arrow_lef{
+/*  position: absolute; top: 450px; left:30px;*/
+}
+
+#arrow_up{
+/*  position: absolute; top: 450px; left:100px;*/
+}
+
+#arrow_right{
+/*  position: absolute; top: 450px; left:170px;*/
+}
+
+#arrow_down{
+/*  position: absolute; top: 450px; left:240px;*/
+}
+
+#arrow_rotate{
+/*  position: absolute; top: 450px; left:310px;*/
+}
+
+#arrow_flip{
+/*  position: absolute; top: 450px; left:380px;*/
+}
+
+#scale_up{
+/*  position: absolute; top: 450px; left:450px;*/
+}
+
+#scale_down{
+/*  position: absolute; top: 450px; left:520px;*/
+}
+
+/*===============================================
+下に配置しているメニュー操作設定
+===============================================*/
+#under_button{
+  margin-top: 80px;
+}
+
+#under_button:after {
+  display:block;
+  clear:both;
+  height: 0;
+  visibility:hidden;
+  content:".";
+}
+
+#under_button input{
+  width: 120px;
+  height: 120px;
+  float: right;
+}
+
+#under_button form{
+  width: 120px;
+  height: 120px;
+}
+
+#deleteButton{
+  float: right;
+}
+
+#formButton{
+  float: right;
+}
+
+#undo{
+/*  position: absolute; top: 600px; left:280px;*/
+}
+
+#return_top{
+/*  position: absolute; top: 600px; left:400px;*/
+}
+
+#okBtn{
+/*  position: absolute; top: 600px; left:520px;*/
+}
+
+
+/*===============================================
+プレビュー画面
+===============================================*/
+
+#leftSendContents{
+  width: 800px;
+  height: 720px;
+  float: left;
+  position: relative;
+}
+
+#rightSendContents{
+  width: 480px;
+  height: 720px;
+  float: left;
+  position: relative;
+}
+
+#canvathImage{
+  width: 680px;
+  height: 680px;
+  position:absolute; top:20px; left:20px;
+}
+
+#createdPreview{
+  width: 580px;
+  height: 430px;
+  position:absolute; top:40px; left:70px;
+}
+
+
+#sentBtn{
+  position:absolute; top:90px; left:80px;
+}
+
+#sentBtnImage{
+  width:250px;
+}
+
+
+#modifyBtn{
+  position:absolute; top:330px; left:80px;
+
+  background:none;
+  border:0;
+}
+
+#modifyBtnImage{
+  width:250px;
+}
+
+
